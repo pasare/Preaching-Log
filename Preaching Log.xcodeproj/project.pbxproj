@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990C312216B9F9D70008E90A /* CalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C312116B9F9D70008E90A /* CalendarMonthViewController.m */; };
+		990C314516B9FF770008E90A /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 990C314016B9FF1D0008E90A /* libTapkuLibrary.a */; };
+		990C316516BA14160008E90A /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C316416BA14160008E90A /* AddEventViewController.m */; };
 		99959A6D16B756DC00E69A2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6C16B756DC00E69A2F /* UIKit.framework */; };
 		99959A6F16B756DC00E69A2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6E16B756DC00E69A2F /* Foundation.framework */; };
 		99959A7116B756DC00E69A2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A7016B756DC00E69A2F /* CoreGraphics.framework */; };
@@ -25,9 +28,34 @@
 		99959A9916B756DC00E69A2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6E16B756DC00E69A2F /* Foundation.framework */; };
 		99959AA116B756DC00E69A2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99959A9F16B756DC00E69A2F /* InfoPlist.strings */; };
 		99959AA416B756DC00E69A2F /* Preaching_LogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99959AA316B756DC00E69A2F /* Preaching_LogTests.m */; };
+		99959AEF16B75CE000E69A2F /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99959AEE16B75CE000E69A2F /* TapkuLibrary.bundle */; };
+		99959AF416B75D5000E69A2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959AF316B75D5000E69A2F /* QuartzCore.framework */; };
+		99959AF616B75D6300E69A2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959AF516B75D6300E69A2F /* MapKit.framework */; };
+		99959B0916B7712700E69A2F /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99959B0816B7712700E69A2F /* CalendarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		990C313F16B9FF1D0008E90A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = TapkuLibrary;
+		};
+		990C314116B9FF1D0008E90A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B45DDF1134C736600D24C1A;
+			remoteInfo = LogicTests;
+		};
+		990C314316B9FF6C0008E90A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = TapkuLibrary;
+		};
 		99959A9A16B756DC00E69A2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 99959A5F16B756DC00E69A2F /* Project object */;
@@ -38,6 +66,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		990C312016B9F9D70008E90A /* CalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarMonthViewController.h; sourceTree = "<group>"; };
+		990C312116B9F9D70008E90A /* CalendarMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarMonthViewController.m; sourceTree = "<group>"; };
+		990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
+		990C316316BA14160008E90A /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		990C316416BA14160008E90A /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		99959A6816B756DC00E69A2F /* Preaching Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Preaching Log.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99959A6C16B756DC00E69A2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		99959A6E16B756DC00E69A2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,6 +96,11 @@
 		99959AA016B756DC00E69A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		99959AA216B756DC00E69A2F /* Preaching_LogTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preaching_LogTests.h; sourceTree = "<group>"; };
 		99959AA316B756DC00E69A2F /* Preaching_LogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Preaching_LogTests.m; sourceTree = "<group>"; };
+		99959AEE16B75CE000E69A2F /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapkuLibrary.bundle; sourceTree = "<group>"; };
+		99959AF316B75D5000E69A2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		99959AF516B75D6300E69A2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		99959B0716B7712700E69A2F /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		99959B0816B7712700E69A2F /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +108,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				990C314516B9FF770008E90A /* libTapkuLibrary.a in Frameworks */,
+				99959AF616B75D6300E69A2F /* MapKit.framework in Frameworks */,
+				99959AF416B75D5000E69A2F /* QuartzCore.framework in Frameworks */,
 				99959A6D16B756DC00E69A2F /* UIKit.framework in Frameworks */,
 				99959A6F16B756DC00E69A2F /* Foundation.framework in Frameworks */,
 				99959A7116B756DC00E69A2F /* CoreGraphics.framework in Frameworks */,
@@ -89,9 +130,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		990C313716B9FF1C0008E90A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				990C314016B9FF1D0008E90A /* libTapkuLibrary.a */,
+				990C314216B9FF1D0008E90A /* LogicTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		99959A5D16B756DC00E69A2F = {
 			isa = PBXGroup;
 			children = (
+				990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */,
 				99959A7216B756DC00E69A2F /* Preaching Log */,
 				99959A9C16B756DC00E69A2F /* Preaching LogTests */,
 				99959A6B16B756DC00E69A2F /* Frameworks */,
@@ -111,6 +162,8 @@
 		99959A6B16B756DC00E69A2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99959AF316B75D5000E69A2F /* QuartzCore.framework */,
+				99959AF516B75D6300E69A2F /* MapKit.framework */,
 				99959A6C16B756DC00E69A2F /* UIKit.framework */,
 				99959A6E16B756DC00E69A2F /* Foundation.framework */,
 				99959A7016B756DC00E69A2F /* CoreGraphics.framework */,
@@ -126,6 +179,10 @@
 				99959A7C16B756DC00E69A2F /* AppDelegate.m */,
 				99959A8416B756DC00E69A2F /* MainStoryboard_iPhone.storyboard */,
 				99959A8716B756DC00E69A2F /* MainStoryboard_iPad.storyboard */,
+				99959B0716B7712700E69A2F /* CalendarViewController.h */,
+				99959B0816B7712700E69A2F /* CalendarViewController.m */,
+				990C316316BA14160008E90A /* AddEventViewController.h */,
+				990C316416BA14160008E90A /* AddEventViewController.m */,
 				99959A8A16B756DC00E69A2F /* MasterViewController.h */,
 				99959A8B16B756DC00E69A2F /* MasterViewController.m */,
 				99959A8D16B756DC00E69A2F /* DetailViewController.h */,
@@ -138,6 +195,9 @@
 		99959A7316B756DC00E69A2F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				990C312016B9F9D70008E90A /* CalendarMonthViewController.h */,
+				990C312116B9F9D70008E90A /* CalendarMonthViewController.m */,
+				99959AEE16B75CE000E69A2F /* TapkuLibrary.bundle */,
 				99959A7416B756DC00E69A2F /* Preaching Log-Info.plist */,
 				99959A7516B756DC00E69A2F /* InfoPlist.strings */,
 				99959A7816B756DC00E69A2F /* main.m */,
@@ -182,6 +242,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				990C314416B9FF6C0008E90A /* PBXTargetDependency */,
 			);
 			name = "Preaching Log";
 			productName = "Preaching Log";
@@ -222,10 +283,18 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
+				French,
 			);
 			mainGroup = 99959A5D16B756DC00E69A2F;
 			productRefGroup = 99959A6916B756DC00E69A2F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 990C313716B9FF1C0008E90A /* Products */;
+					ProjectRef = 990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				99959A6716B756DC00E69A2F /* Preaching Log */,
@@ -233,6 +302,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		990C314016B9FF1D0008E90A /* libTapkuLibrary.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTapkuLibrary.a;
+			remoteRef = 990C313F16B9FF1D0008E90A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		990C314216B9FF1D0008E90A /* LogicTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LogicTests.octest;
+			remoteRef = 990C314116B9FF1D0008E90A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		99959A6616B756DC00E69A2F /* Resources */ = {
@@ -245,6 +331,7 @@
 				99959A8316B756DC00E69A2F /* Default-568h@2x.png in Resources */,
 				99959A8616B756DC00E69A2F /* MainStoryboard_iPhone.storyboard in Resources */,
 				99959A8916B756DC00E69A2F /* MainStoryboard_iPad.storyboard in Resources */,
+				99959AEF16B75CE000E69A2F /* TapkuLibrary.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +370,9 @@
 				99959A7D16B756DC00E69A2F /* AppDelegate.m in Sources */,
 				99959A8C16B756DC00E69A2F /* MasterViewController.m in Sources */,
 				99959A8F16B756DC00E69A2F /* DetailViewController.m in Sources */,
+				99959B0916B7712700E69A2F /* CalendarViewController.m in Sources */,
+				990C312216B9F9D70008E90A /* CalendarMonthViewController.m in Sources */,
+				990C316516BA14160008E90A /* AddEventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +387,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		990C314416B9FF6C0008E90A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TapkuLibrary;
+			targetProxy = 990C314316B9FF6C0008E90A /* PBXContainerItemProxy */;
+		};
 		99959A9B16B756DC00E69A2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 99959A6716B756DC00E69A2F /* Preaching Log */;
@@ -395,9 +490,15 @@
 		99959AA816B756DC00E69A2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Preaching Log/Preaching Log-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}\"",
+					/Users/patrickasare/Desktop/tapkulibrary/src,
+				);
 				INFOPLIST_FILE = "Preaching Log/Preaching Log-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -406,9 +507,15 @@
 		99959AA916B756DC00E69A2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Preaching Log/Preaching Log-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}\"",
+					/Users/patrickasare/Desktop/tapkulibrary/src,
+				);
 				INFOPLIST_FILE = "Preaching Log/Preaching Log-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -467,6 +574,7 @@
 				99959AA916B756DC00E69A2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		99959AAA16B756DC00E69A2F /* Build configuration list for PBXNativeTarget "Preaching LogTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +583,7 @@
 				99959AAC16B756DC00E69A2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
