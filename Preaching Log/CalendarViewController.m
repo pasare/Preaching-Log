@@ -65,12 +65,14 @@
     NSMutableArray *items = [[NSMutableArray alloc] init];
     [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"List Week" style:UIBarButtonItemStyleBordered
                                                      target:self action:@selector(updateList:)]];
+    [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"Clear Old Events" style:UIBarButtonItemStyleBordered
+                                                     target:self action:@selector(removeOldDates:)]];
     [toolbar setItems:items animated:NO];
     [self.view addSubview:toolbar];
     
     self.navigationItem.title =@"Preaching Log";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                              initWithTitle:@"Add Event" style:UIBarButtonItemStylePlain
+                                              initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                               target:self action:@selector(addEvent)];
 	if(self.currentPopoverController!=nil){
 		
@@ -93,8 +95,7 @@
 
 - (void) splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
     
-    
-	barButtonItem.title = @"Demos";
+	barButtonItem.title = @"Preaching Log";
     NSMutableArray *items = [[self.toolbar items] mutableCopy];
     [items insertObject:barButtonItem atIndex:0];
     [self.toolbar setItems:items animated:YES];
@@ -102,8 +103,6 @@
 }
 - (void) splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
 	
-	
-    
 	NSMutableArray *items = [[self.toolbar items] mutableCopy];
     [items removeObjectAtIndex:0];
     [self.toolbar setItems:items animated:YES];
@@ -140,11 +139,14 @@
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
 	 */
+    
 }
 
 -(void) addEvent {
-    AddEventViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addEventView"];
+    //Keep track of the date that was selected
     
+    //Move to add detail screen
+    AddEventViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addEventView"];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

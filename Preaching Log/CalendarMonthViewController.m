@@ -15,6 +15,8 @@
 - (void) viewDidLoad{
 	[super viewDidLoad];
 	[self.monthView selectDate:[NSDate month]];
+    VariableStore *globals =[VariableStore sharedInstance];
+    globals.calendar = self.tableView;
     
 }
 
@@ -32,7 +34,12 @@
 	NSDate *myTimeZoneDay = [NSDate dateFromDateInformation:info timeZone:[NSTimeZone systemTimeZone]];
 	
 	NSLog(@"Date Selected: %@",myTimeZoneDay);
-	
+	//Save the date as a global variable
+    VariableStore *globals =[VariableStore sharedInstance];
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:date
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    globals.currentDate = dateString;
 	[self.tableView reloadData];
 }
 - (void) calendarMonthView:(TKCalendarMonthView*)mv monthDidChange:(NSDate*)d animated:(BOOL)animated{
@@ -75,22 +82,37 @@
 	
 	NSLog(@"Delegate Range: %@ %@ %d",start,end,[start daysBetweenDate:end]);
 	
-	self.dataArray = [NSMutableArray array];
-	self.dataDictionary = [NSMutableDictionary dictionary];
-	
+    //Retrieve the events the user has saved, if this is first time create fresh
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.dataArray = [NSMutableArray array];
+    self.dataDictionary = [NSMutableDictionary dictionary];
+	NSDictionary *memoryDictionary = [defaults objectForKey:@"dataDictionary"];
+    if (memoryDictionary == nil) {
+        [defaults setObject:self.dataDictionary forKey:@"dataDictionary"];
+    }
 	NSDate *d = start;
+    NSString *dateString;
+
 	while(YES){
-		
-		int r = arc4random();
-		if(r % 3==1){
+		//Remove all this random stuff. do a retrieve on the dictionary using key d. If it is not nil then add Yes to dataArray. Otherwise add no
+		//int r = arc4random();
+        dateString = [NSDateFormatter localizedStringFromDate:d
+                                    dateStyle:NSDateFormatterShortStyle
+                                    timeStyle:NSDateFormatterNoStyle];
+		if ([memoryDictionary objectForKey:dateString] != nil) {
+            [self.dataDictionary setObject:[memoryDictionary objectForKey:dateString] forKey:d];
+            [self.dataArray addObject:[NSNumber numberWithBool:YES]];
+        }
+        
+        /*if(r % 3==1){
 			[self.dataDictionary setObject:[NSArray arrayWithObjects:@"Item one",@"Item two",nil] forKey:d];
 			[self.dataArray addObject:[NSNumber numberWithBool:YES]];
 			
 		}else if(r%4==1){
 			[self.dataDictionary setObject:[NSArray arrayWithObjects:@"Item one",nil] forKey:d];
-			[self.dataArray addObject:[NSNumber numberWithBool:YES]];
-			
-		}else
+			[self.dataArray addObject:[NSNumber numberWithBool:YES]]; 
+        }*/
+        else
 			[self.dataArray addObject:[NSNumber numberWithBool:NO]];
 		
 		

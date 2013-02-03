@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VariableStore.h"
 
 @interface AddEventViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *eveningLabel;
+@property (weak, nonatomic) IBOutlet UILabel *afternoonLabel;
+@property (weak, nonatomic) IBOutlet UILabel *morningLabel;
+@property (weak, nonatomic) IBOutlet UIPickerView *eventPicker;
+@property (weak, nonatomic) IBOutlet UIButton *changeEvening;
+@property (weak, nonatomic) IBOutlet UIButton *changeAfternoon;
+@property (weak, nonatomic) IBOutlet UIButton *changeMorning;
 
 @end

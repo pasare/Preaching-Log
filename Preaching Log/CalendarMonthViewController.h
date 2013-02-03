@@ -7,6 +7,7 @@
 //
 #import <TapkuLibrary/TapkuLibrary.h>
 #import <UIKit/UIKit.h>
+#import "VariableStore.h"
 
 
 @interface CalendarMonthViewController : TKCalendarMonthTableViewController

@@ -10,6 +10,7 @@
 		990C312216B9F9D70008E90A /* CalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C312116B9F9D70008E90A /* CalendarMonthViewController.m */; };
 		990C314516B9FF770008E90A /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 990C314016B9FF1D0008E90A /* libTapkuLibrary.a */; };
 		990C316516BA14160008E90A /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C316416BA14160008E90A /* AddEventViewController.m */; };
+		990C317216BCAB120008E90A /* VariableStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C317116BCAB120008E90A /* VariableStore.m */; };
 		99959A6D16B756DC00E69A2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6C16B756DC00E69A2F /* UIKit.framework */; };
 		99959A6F16B756DC00E69A2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6E16B756DC00E69A2F /* Foundation.framework */; };
 		99959A7116B756DC00E69A2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A7016B756DC00E69A2F /* CoreGraphics.framework */; };
@@ -71,6 +72,8 @@
 		990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		990C316316BA14160008E90A /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		990C316416BA14160008E90A /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		990C317016BCAB120008E90A /* VariableStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableStore.h; sourceTree = "<group>"; };
+		990C317116BCAB120008E90A /* VariableStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableStore.m; sourceTree = "<group>"; };
 		99959A6816B756DC00E69A2F /* Preaching Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Preaching Log.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99959A6C16B756DC00E69A2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		99959A6E16B756DC00E69A2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -187,6 +190,8 @@
 				99959A8B16B756DC00E69A2F /* MasterViewController.m */,
 				99959A8D16B756DC00E69A2F /* DetailViewController.h */,
 				99959A8E16B756DC00E69A2F /* DetailViewController.m */,
+				990C317016BCAB120008E90A /* VariableStore.h */,
+				990C317116BCAB120008E90A /* VariableStore.m */,
 				99959A7316B756DC00E69A2F /* Supporting Files */,
 			);
 			path = "Preaching Log";
@@ -373,6 +378,7 @@
 				99959B0916B7712700E69A2F /* CalendarViewController.m in Sources */,
 				990C312216B9F9D70008E90A /* CalendarMonthViewController.m in Sources */,
 				990C316516BA14160008E90A /* AddEventViewController.m in Sources */,
+				990C317216BCAB120008E90A /* VariableStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
