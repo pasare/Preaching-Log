@@ -11,6 +11,9 @@
 		990C314516B9FF770008E90A /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 990C314016B9FF1D0008E90A /* libTapkuLibrary.a */; };
 		990C316516BA14160008E90A /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C316416BA14160008E90A /* AddEventViewController.m */; };
 		990C317216BCAB120008E90A /* VariableStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C317116BCAB120008E90A /* VariableStore.m */; };
+		990C317E16BF5C000008E90A /* grey_uibutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C317D16BF5BFF0008E90A /* grey_uibutton.png */; };
+		990C318016BF5C110008E90A /* green_uibutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C317F16BF5C110008E90A /* green_uibutton.png */; };
+		990C318216BF5C220008E90A /* red_uibutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C318116BF5C220008E90A /* red_uibutton.png */; };
 		99959A6D16B756DC00E69A2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6C16B756DC00E69A2F /* UIKit.framework */; };
 		99959A6F16B756DC00E69A2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6E16B756DC00E69A2F /* Foundation.framework */; };
 		99959A7116B756DC00E69A2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A7016B756DC00E69A2F /* CoreGraphics.framework */; };
@@ -74,6 +77,9 @@
 		990C316416BA14160008E90A /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		990C317016BCAB120008E90A /* VariableStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableStore.h; sourceTree = "<group>"; };
 		990C317116BCAB120008E90A /* VariableStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableStore.m; sourceTree = "<group>"; };
+		990C317D16BF5BFF0008E90A /* grey_uibutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey_uibutton.png; sourceTree = "<group>"; };
+		990C317F16BF5C110008E90A /* green_uibutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_uibutton.png; sourceTree = "<group>"; };
+		990C318116BF5C220008E90A /* red_uibutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_uibutton.png; sourceTree = "<group>"; };
 		99959A6816B756DC00E69A2F /* Preaching Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Preaching Log.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99959A6C16B756DC00E69A2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		99959A6E16B756DC00E69A2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -200,6 +206,9 @@
 		99959A7316B756DC00E69A2F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				990C318116BF5C220008E90A /* red_uibutton.png */,
+				990C317F16BF5C110008E90A /* green_uibutton.png */,
+				990C317D16BF5BFF0008E90A /* grey_uibutton.png */,
 				990C312016B9F9D70008E90A /* CalendarMonthViewController.h */,
 				990C312116B9F9D70008E90A /* CalendarMonthViewController.m */,
 				99959AEE16B75CE000E69A2F /* TapkuLibrary.bundle */,
@@ -337,6 +346,9 @@
 				99959A8616B756DC00E69A2F /* MainStoryboard_iPhone.storyboard in Resources */,
 				99959A8916B756DC00E69A2F /* MainStoryboard_iPad.storyboard in Resources */,
 				99959AEF16B75CE000E69A2F /* TapkuLibrary.bundle in Resources */,
+				990C317E16BF5C000008E90A /* grey_uibutton.png in Resources */,
+				990C318016BF5C110008E90A /* green_uibutton.png in Resources */,
+				990C318216BF5C220008E90A /* red_uibutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

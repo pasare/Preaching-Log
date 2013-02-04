@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "VariableStore.h"
+#import <TapkuLibrary/TapkuLibrary.h>
+#import "CalendarMonthViewController.h"
 
 @interface AddEventViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *eveningLabel;

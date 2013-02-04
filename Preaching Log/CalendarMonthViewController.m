@@ -124,5 +124,9 @@
 	
 }
 
+-(void) refreshTable {
+    [self.tableView reloadData];
+}
+
 
 @end

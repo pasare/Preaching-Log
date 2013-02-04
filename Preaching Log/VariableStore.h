@@ -10,7 +10,7 @@
 
 @interface VariableStore : NSObject
 @property (nonatomic) NSString *currentDate;
-@property (weak,nonatomic) UITableView *calendar;
+@property (nonatomic,) UITableView *calendar;
 
 + (VariableStore *)sharedInstance;
 - (NSString*) currentDate;

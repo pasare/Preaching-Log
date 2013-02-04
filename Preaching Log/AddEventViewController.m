@@ -114,9 +114,13 @@
     //save everything
     [defaults setObject:dataDictionary forKey:@"dataDictionary"];
     
-    //Go back to calender
-    
+    //Go back to calendar
+    [[TKAlertCenter defaultCenter] postAlertWithMessage:@"The events have been sucessfully posted!"];
     [[[VariableStore sharedInstance]calendar] reloadData];
+    CalendarMonthViewController * parentView = (CalendarMonthViewController*)self.navigationController.topViewController;
+    [parentView.tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
+    
     
     //AddEventViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addEventView"];
     //[self.navigationController pushViewController:viewController animated:YES];
