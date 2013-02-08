@@ -30,8 +30,25 @@
 	_eventsArray = [[NSMutableArray alloc] init];
     [_eventsArray addObject:@"1 Door to Door Preaching"];
     [_eventsArray addObject:@"2 Street Preaching"];
+    [_eventsArray addObject:@"3 Acquaintance Preaching"];
+    [_eventsArray addObject:@"4 Public Preaching"];
+    [_eventsArray addObject:@"5 Visit"];
+    [_eventsArray addObject:@"6 Education"];
     [_eventsArray addObject:@"7 Activity for Church"];
-    [_eventsArray addObject:@"8 Church Gathering"];
+    [_eventsArray addObject:@"8 Church Gathering/Event"];
+    [_eventsArray addObject:@"9 Offical Trip"];
+    [_eventsArray addObject:@"10 Counseling"];
+    [_eventsArray addObject:@"11 Administration"];
+    [_eventsArray addObject:@"12 Head Office Work"];
+    [_eventsArray addObject:@"99 Other(Specify)"];
+    
+    //Stylize
+    /*_morningLabel.layer.borderWidth = 3.0f;
+    _morningLabel.layer.borderColor = [[UIColor blackColor] CGColor];
+    _afternoonLabel.layer.borderWidth = 3.0f;
+    _afternoonLabel.layer.borderColor = [[UIColor blackColor] CGColor];
+    _eveningLabel.layer.borderWidth = 3.0f;
+    _eveningLabel.layer.borderColor = [[UIColor blackColor] CGColor]; */
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithTitle:@"Save Events" style:UIBarButtonItemStylePlain
@@ -91,8 +108,6 @@
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     NSString *selectedEvent = [_eventsArray objectAtIndex:row];
-    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //[defaults setObject:selectedEvent forKey:@"zionName"];
     _currentLabel.text = selectedEvent;
     _eventPicker.hidden = YES;
 }
@@ -103,11 +118,12 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *dataDictionary = [[defaults objectForKey:@"dataDictionary"] mutableCopy];
     if (date == nil) {
-        date = [NSDateFormatter localizedStringFromDate:[NSDate date]
+        date = [NSDateFormatter localizedStringFromDate:[[VariableStore sharedInstance] startDate]
                                 dateStyle:NSDateFormatterShortStyle
                                 timeStyle:NSDateFormatterNoStyle];
     }
     //Save the event data
+    //NSLog(@"The date being saved: %@",date);
     [dataDictionary setObject:[NSArray arrayWithObjects:_morningLabel.text,_afternoonLabel.text,_eveningLabel.text,nil] forKey:date];
     
     
@@ -116,9 +132,6 @@
     
     //Go back to calendar
     [[TKAlertCenter defaultCenter] postAlertWithMessage:@"The events have been sucessfully posted!"];
-    [[[VariableStore sharedInstance]calendar] reloadData];
-    CalendarMonthViewController * parentView = (CalendarMonthViewController*)self.navigationController.topViewController;
-    [parentView.tableView reloadData];
     [self.navigationController popViewControllerAnimated:YES];
     
     

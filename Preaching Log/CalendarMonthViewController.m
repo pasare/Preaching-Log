@@ -16,6 +16,7 @@
 	[super viewDidLoad];
 	[self.monthView selectDate:[NSDate month]];
     VariableStore *globals =[VariableStore sharedInstance];
+    globals.startDate = [NSDate month];
     globals.calendar = self.tableView;
     
 }
@@ -30,16 +31,19 @@
 - (void) calendarMonthView:(TKCalendarMonthView*)monthView didSelectDate:(NSDate*)date{
 	
 	// CHANGE THE DATE TO YOUR TIMEZONE
-	TKDateInformation info = [date dateInformationWithTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+	TKDateInformation info = [date dateInformationWithTimeZone:[NSTimeZone systemTimeZone]];
 	NSDate *myTimeZoneDay = [NSDate dateFromDateInformation:info timeZone:[NSTimeZone systemTimeZone]];
 	
-	NSLog(@"Date Selected: %@",myTimeZoneDay);
+	
 	//Save the date as a global variable
     VariableStore *globals =[VariableStore sharedInstance];
-    NSString *dateString = [NSDateFormatter localizedStringFromDate:date
+    
+    NSDate *modifiedDate = [myTimeZoneDay dateByAddingTimeInterval:8*60*60];
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:modifiedDate
                                                           dateStyle:NSDateFormatterShortStyle
                                                           timeStyle:NSDateFormatterNoStyle];
     globals.currentDate = dateString;
+    globals.currentDateActual = modifiedDate;
 	[self.tableView reloadData];
 }
 - (void) calendarMonthView:(TKCalendarMonthView*)mv monthDidChange:(NSDate*)d animated:(BOOL)animated{
@@ -79,7 +83,6 @@
 	// dataArray: has boolean markers for each day to pass to the calendar view (via the delegate function)
 	// dataDictionary: has items that are associated with date keys (for tableview)
 	
-	
 	NSLog(@"Delegate Range: %@ %@ %d",start,end,[start daysBetweenDate:end]);
 	
     //Retrieve the events the user has saved, if this is first time create fresh
@@ -91,35 +94,30 @@
         [defaults setObject:self.dataDictionary forKey:@"dataDictionary"];
     }
 	NSDate *d = start;
+    NSDate *modifiedDate;
     NSString *dateString;
-
 	while(YES){
-		//Remove all this random stuff. do a retrieve on the dictionary using key d. If it is not nil then add Yes to dataArray. Otherwise add no
-		//int r = arc4random();
-        dateString = [NSDateFormatter localizedStringFromDate:d
+        modifiedDate = [d dateByAddingTimeInterval:8*60*60];
+        dateString = [NSDateFormatter localizedStringFromDate:modifiedDate
                                     dateStyle:NSDateFormatterShortStyle
                                     timeStyle:NSDateFormatterNoStyle];
 		if ([memoryDictionary objectForKey:dateString] != nil) {
             [self.dataDictionary setObject:[memoryDictionary objectForKey:dateString] forKey:d];
             [self.dataArray addObject:[NSNumber numberWithBool:YES]];
         }
-        
-        /*if(r % 3==1){
-			[self.dataDictionary setObject:[NSArray arrayWithObjects:@"Item one",@"Item two",nil] forKey:d];
-			[self.dataArray addObject:[NSNumber numberWithBool:YES]];
-			
-		}else if(r%4==1){
-			[self.dataDictionary setObject:[NSArray arrayWithObjects:@"Item one",nil] forKey:d];
-			[self.dataArray addObject:[NSNumber numberWithBool:YES]]; 
-        }*/
+
         else
 			[self.dataArray addObject:[NSNumber numberWithBool:NO]];
 		
 		
-		TKDateInformation info = [d dateInformationWithTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+		TKDateInformation info = [d dateInformationWithTimeZone:[NSTimeZone systemTimeZone]];
 		info.day++;
-		d = [NSDate dateFromDateInformation:info timeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-		if([d compare:end]==NSOrderedDescending) break;
+        
+		d = [NSDate dateFromDateInformation:info timeZone:[NSTimeZone systemTimeZone]];
+        
+		if([d compare:end]==NSOrderedDescending) {
+            break;
+        }
 	}
 	
 }

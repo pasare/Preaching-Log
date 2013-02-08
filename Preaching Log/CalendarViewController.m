@@ -35,9 +35,11 @@
 	self.toolbar.items = [NSArray array];
 	[self.view addSubview:self.toolbar]; */
     
+    
+    
     //Create the calendar
-	UIViewController *calendarView = [[CalendarMonthViewController alloc] initWithSunday:YES];
-    [self setupWithMainController:calendarView];
+	_calendarView = [[CalendarMonthViewController alloc] initWithSunday:YES];
+    [self setupWithMainController:_calendarView];
     
 }
 
@@ -63,10 +65,13 @@
     toolbar.frame = CGRectMake(0, self.view.frame.size.height-85, self.view.frame.size.width, 44);
     [toolbar setTintColor:[UIColor grayColor]];
     NSMutableArray *items = [[NSMutableArray alloc] init];
+    //Create bottom bar items
     [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"List Week" style:UIBarButtonItemStyleBordered
-                                                     target:self action:@selector(updateList:)]];
+                                                     target:self action:@selector(viewWeek)]];
     [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"Clear Old Events" style:UIBarButtonItemStyleBordered
-                                                     target:self action:@selector(removeOldDates:)]];
+                                                     target:self action:@selector(removeOldEvents)]];
+    [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"Contacts Log" style:UIBarButtonItemStyleBordered
+                                                     target:self action:@selector(viewContactsLog)]];
     [toolbar setItems:items animated:NO];
     [self.view addSubview:toolbar];
     
@@ -150,9 +155,34 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+-(void) viewWeek {
+    ViewWeekViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"viewWeek"];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+-(void) removeOldEvents {
+    [[TKAlertCenter defaultCenter] postAlertWithMessage:@"This feature has not been implemented yet"];
+    //This clears all saved dates
+    /*NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];*/
+     
+}
+
+-(void) viewContactsLog {
+    [[TKAlertCenter defaultCenter] postAlertWithMessage:@"This feature has not been implemented yet"];
+}
+
+
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_calendarView.tableView reloadData];
+    
+    
+}
 
 @end

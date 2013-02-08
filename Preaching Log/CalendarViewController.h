@@ -10,6 +10,7 @@
 #import <TapkuLibrary/TapkuLibrary.h>
 #import "CalendarMonthViewController.h"
 #import "AddEventViewController.h"
+#import "ViewWeekViewController.h"
 @interface CalendarViewController : UIViewController <UISplitViewControllerDelegate>
 
 
@@ -18,6 +19,7 @@
 @property (strong,nonatomic) UIToolbar *toolbar;
 @property (nonatomic,strong) UIViewController *mainController;
 @property (nonatomic,strong) UIPopoverController *currentPopoverController;
+@property (nonatomic, strong) CalendarMonthViewController *calendarView;
 
 - (void) setupWithMainController:(UIViewController*)controller;
 @end

@@ -28,6 +28,14 @@
     return _currentDate;
 }
 
+- (NSDate*) currentDateActual {
+    return _currentDateActual;
+}
+
+- (NSDate*) startDate {
+    return _startDate;
+}
+
 - (UITableView*) calendar {
     return _calendar;
 }

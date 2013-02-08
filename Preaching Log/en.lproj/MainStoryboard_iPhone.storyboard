@@ -133,13 +133,13 @@
                                     <constraint firstAttribute="width" constant="75" id="QKy-eS-OEY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="None" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="iI6-03-ex4">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="B54-Vg-OHg"/>
                                     <constraint firstAttribute="width" constant="134" id="ZRL-7K-FQs"/>
-                                    <constraint firstAttribute="height" constant="47" id="ZpJ-7J-sN0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -150,7 +150,7 @@
                                     <constraint firstAttribute="width" constant="62" id="mlV-ng-eKG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Change" backgroundImage="grey_uibutton.png">
+                                <state key="normal" title="Change" backgroundImage="red_uibutton.png">
                                     <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -175,13 +175,13 @@
                                     <constraint firstAttribute="width" constant="85" id="SNf-fv-uLW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="None" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="117" translatesAutoresizingMaskIntoConstraints="NO" id="LpY-YZ-FFc">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="HM4-fc-7qi"/>
-                                    <constraint firstAttribute="height" constant="47" id="gtH-wS-E9a"/>
+                                    <constraint firstAttribute="height" constant="46" id="nEK-9M-n9C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -192,7 +192,7 @@
                                     <constraint firstAttribute="height" constant="25" id="mZp-f6-iIL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Change" backgroundImage="grey_uibutton.png">
+                                <state key="normal" title="Change" backgroundImage="red_uibutton.png">
                                     <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -205,7 +205,7 @@
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Evening:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPt-4G-bkR">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="None" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="zAg-dE-zSE">
@@ -221,7 +221,7 @@
                                     <constraint firstAttribute="height" constant="25" id="dHk-vR-zgG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Change" backgroundImage="grey_uibutton.png">
+                                <state key="normal" title="Change" backgroundImage="red_uibutton.png">
                                     <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -233,35 +233,34 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iI6-03-ex4" firstAttribute="leading" secondItem="zAg-dE-zSE" secondAttribute="leading" type="default" id="4Q4-In-yUF"/>
                             <constraint firstItem="hRN-1i-WIi" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" type="default" id="5G0-xI-Rdd"/>
-                            <constraint firstItem="LpY-YZ-FFc" firstAttribute="centerY" secondItem="C2a-HV-Z8W" secondAttribute="centerY" type="default" id="5Jb-b8-T7s"/>
+                            <constraint firstItem="pmL-ud-Umy" firstAttribute="centerY" secondItem="7nh-sK-LS0" secondAttribute="centerY" type="default" id="63E-zz-JGv"/>
                             <constraint firstItem="MPt-4G-bkR" firstAttribute="trailing" secondItem="pmL-ud-Umy" secondAttribute="trailing" type="default" id="77b-wu-hQZ"/>
                             <constraint firstItem="hRN-1i-WIi" firstAttribute="trailing" secondItem="tz4-qO-fI2" secondAttribute="trailing" type="default" id="8Ky-VJ-DbU"/>
-                            <constraint firstItem="iI6-03-ex4" firstAttribute="centerY" secondItem="7nh-sK-LS0" secondAttribute="centerY" type="default" id="Ad2-sE-euz"/>
                             <constraint firstItem="ELw-Mn-tZp" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" type="default" id="CdH-c4-dvE"/>
                             <constraint firstItem="iI6-03-ex4" firstAttribute="top" secondItem="tz4-qO-fI2" secondAttribute="top" constant="41" id="Ckb-Kx-Bay"/>
                             <constraint firstItem="gAN-pJ-Y0u" firstAttribute="leading" secondItem="C2a-HV-Z8W" secondAttribute="leading" type="default" id="DEC-aC-HEP"/>
                             <constraint firstAttribute="trailing" secondItem="gAN-pJ-Y0u" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Do4-xY-Zcc"/>
-                            <constraint firstItem="zAg-dE-zSE" firstAttribute="centerX" secondItem="LpY-YZ-FFc" secondAttribute="centerX" type="default" id="EH0-9R-r7I"/>
-                            <constraint firstItem="zAg-dE-zSE" firstAttribute="centerY" secondItem="MPt-4G-bkR" secondAttribute="centerY" type="default" id="EbH-BL-N6D"/>
-                            <constraint firstItem="zAg-dE-zSE" firstAttribute="top" secondItem="tz4-qO-fI2" secondAttribute="top" constant="137" id="Qqk-Zz-jph"/>
-                            <constraint firstItem="LpY-YZ-FFc" firstAttribute="top" secondItem="tz4-qO-fI2" secondAttribute="top" constant="90" id="RIR-aj-Fa8"/>
+                            <constraint firstItem="LpY-YZ-FFc" firstAttribute="centerX" secondItem="zAg-dE-zSE" secondAttribute="centerX" type="default" id="RfJ-Qq-3Wc"/>
                             <constraint firstItem="iI6-03-ex4" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" constant="74" id="SOc-Sy-b1M"/>
+                            <constraint firstItem="LpY-YZ-FFc" firstAttribute="centerY" secondItem="C2a-HV-Z8W" secondAttribute="centerY" type="default" id="SUf-58-yRr"/>
+                            <constraint firstItem="LpY-YZ-FFc" firstAttribute="top" secondItem="tz4-qO-fI2" secondAttribute="top" constant="98" id="WE6-U4-NYW"/>
                             <constraint firstAttribute="trailing" secondItem="7nh-sK-LS0" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="XKj-2n-E4u"/>
                             <constraint firstItem="hRN-1i-WIi" firstAttribute="bottom" secondItem="tz4-qO-fI2" secondAttribute="bottom" type="default" id="aVY-AP-bCE"/>
                             <constraint firstItem="pmL-ud-Umy" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" type="default" id="bSc-mn-la1"/>
                             <constraint firstItem="iI6-03-ex4" firstAttribute="trailing" secondItem="zAg-dE-zSE" secondAttribute="trailing" type="default" id="c1N-Rp-ydb"/>
+                            <constraint firstItem="zAg-dE-zSE" firstAttribute="centerY" secondItem="MPt-4G-bkR" secondAttribute="centerY" type="default" id="coQ-N4-4cb"/>
+                            <constraint firstItem="C2a-HV-Z8W" firstAttribute="baseline" secondItem="ELw-Mn-tZp" secondAttribute="baseline" type="default" id="d7v-2l-z87"/>
+                            <constraint firstItem="gAN-pJ-Y0u" firstAttribute="centerY" secondItem="zAg-dE-zSE" secondAttribute="centerY" type="default" id="dbS-3c-KHo"/>
                             <constraint firstItem="MPt-4G-bkR" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" type="default" id="g0r-C0-avU"/>
-                            <constraint firstItem="zAg-dE-zSE" firstAttribute="centerY" secondItem="gAN-pJ-Y0u" secondAttribute="centerY" type="default" id="j5g-fg-jxn"/>
                             <constraint firstItem="gAN-pJ-Y0u" firstAttribute="baseline" secondItem="zAg-dE-zSE" secondAttribute="baseline" type="default" id="nwB-LJ-OiV"/>
                             <constraint firstItem="C2a-HV-Z8W" firstAttribute="leading" secondItem="7nh-sK-LS0" secondAttribute="leading" type="default" id="sw5-iv-RkO"/>
-                            <constraint firstItem="LpY-YZ-FFc" firstAttribute="baseline" secondItem="C2a-HV-Z8W" secondAttribute="baseline" type="default" id="tcI-B1-txM"/>
                             <constraint firstAttribute="trailing" secondItem="C2a-HV-Z8W" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="tmD-8D-IyO"/>
-                            <constraint firstItem="LpY-YZ-FFc" firstAttribute="centerY" secondItem="ELw-Mn-tZp" secondAttribute="centerY" type="default" id="uLV-5z-HbT"/>
-                            <constraint firstItem="iI6-03-ex4" firstAttribute="centerY" secondItem="pmL-ud-Umy" secondAttribute="centerY" type="default" id="xBK-q2-Sz4"/>
+                            <constraint firstItem="7nh-sK-LS0" firstAttribute="top" secondItem="tz4-qO-fI2" secondAttribute="top" constant="52" id="wHW-eL-BoL"/>
+                            <constraint firstItem="zAg-dE-zSE" firstAttribute="top" secondItem="LpY-YZ-FFc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yed-bX-FKt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Event" id="cbP-Ey-iB6"/>
@@ -279,9 +278,45 @@
             </objects>
             <point key="canvasLocation" x="459" y="747"/>
         </scene>
+        <!--View Week View Controller-->
+        <scene sceneID="HYb-nb-IaI">
+            <objects>
+                <tableViewController storyboardIdentifier="viewWeek" id="ltF-k6-z99" customClass="ViewWeekViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xu1-Dm-m6Y">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="hBe-Q9-Tws" style="IBUITableViewCellStyleDefault" id="uQL-RN-H1E">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBe-Q9-Tws">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ltF-k6-z99" id="Twv-Bx-7tf"/>
+                            <outlet property="delegate" destination="ltF-k6-z99" id="tpB-tX-kjM"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Mc-Ma-mh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="747"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="grey_uibutton.png" width="301" height="43"/>
+        <image name="red_uibutton.png" width="301" height="43"/>
     </resources>
     <classes>
         <class className="AddEventViewController" superclassName="UIViewController">
@@ -313,6 +348,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewWeekViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewWeekViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
