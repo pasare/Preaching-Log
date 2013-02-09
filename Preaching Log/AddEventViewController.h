@@ -12,6 +12,7 @@
 #import "CalendarMonthViewController.h"
 
 @interface AddEventViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UINavigationItem *eventNavigationItem;
 @property (weak, nonatomic) IBOutlet UILabel *eveningLabel;
 @property (weak, nonatomic) IBOutlet UILabel *afternoonLabel;
 @property (weak, nonatomic) IBOutlet UILabel *morningLabel;

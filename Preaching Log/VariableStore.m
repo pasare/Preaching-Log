@@ -36,7 +36,5 @@
     return _startDate;
 }
 
-- (UITableView*) calendar {
-    return _calendar;
-}
+
 @end

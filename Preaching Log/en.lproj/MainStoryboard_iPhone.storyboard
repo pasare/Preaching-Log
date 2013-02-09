@@ -20,88 +20,6 @@
             </objects>
             <point key="canvasLocation" x="-1" y="64"/>
         </scene>
-        <!--Master View Controller - Master-->
-        <scene sceneID="18">
-            <objects>
-                <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Iih-P4-PFL">
-                            <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem title="Item" id="uX9-hS-SKW"/>
-                            </items>
-                        </toolbar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="phq-AM-6qj" style="IBUITableViewCellStyleDefault" id="lJ0-d7-vTF">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="phq-AM-6qj">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="21" kind="push" identifier="showDetail" id="jZb-fq-zAk"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="12" id="16"/>
-                            <outlet property="delegate" destination="12" id="15"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="36"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="459" y="64"/>
-        </scene>
-        <!--Detail View Controller - Detail-->
-        <scene sceneID="24">
-            <objects>
-                <viewController storyboardIdentifier="" title="Detail" id="21" customClass="DetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="22">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="27" firstAttribute="centerY" secondItem="22" secondAttribute="centerY" type="default" id="7cE-gL-0wv"/>
-                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R0m-z7-TWk"/>
-                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pRe-qY-58T"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Detail" id="26"/>
-                    <connections>
-                        <outlet property="detailDescriptionLabel" destination="27" id="28"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="902" y="64"/>
-        </scene>
         <!--Calendar View Controller - Preaching Log-->
         <scene sceneID="udX-IM-qne">
             <objects>
@@ -136,10 +54,10 @@
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="None" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="iI6-03-ex4">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="None" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="156" translatesAutoresizingMaskIntoConstraints="NO" id="iI6-03-ex4">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="B54-Vg-OHg"/>
-                                    <constraint firstAttribute="width" constant="134" id="ZRL-7K-FQs"/>
+                                    <constraint firstAttribute="width" constant="156" id="gi6-ga-OcF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -163,7 +81,7 @@
                             </button>
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRN-1i-WIi">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="Wxb-cB-DyZ"/>
+                                    <constraint firstAttribute="height" constant="180" id="VW0-H0-p6u"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="bfh-My-fW8" id="7P1-gz-c6X"/>
@@ -178,9 +96,9 @@
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="None" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="117" translatesAutoresizingMaskIntoConstraints="NO" id="LpY-YZ-FFc">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="None" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="147" translatesAutoresizingMaskIntoConstraints="NO" id="LpY-YZ-FFc">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="117" id="HM4-fc-7qi"/>
+                                    <constraint firstAttribute="width" constant="147" id="imY-T3-4lX"/>
                                     <constraint firstAttribute="height" constant="46" id="nEK-9M-n9C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -208,7 +126,7 @@
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="None" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="zAg-dE-zSE">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="None" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="156" translatesAutoresizingMaskIntoConstraints="NO" id="zAg-dE-zSE">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="mzD-Ni-ypL"/>
                                 </constraints>
@@ -235,23 +153,23 @@
                         </subviews>
                         <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gAN-pJ-Y0u" firstAttribute="leading" secondItem="zAg-dE-zSE" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="3Cg-fw-33S"/>
                             <constraint firstItem="iI6-03-ex4" firstAttribute="leading" secondItem="zAg-dE-zSE" secondAttribute="leading" type="default" id="4Q4-In-yUF"/>
                             <constraint firstItem="hRN-1i-WIi" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" type="default" id="5G0-xI-Rdd"/>
                             <constraint firstItem="pmL-ud-Umy" firstAttribute="centerY" secondItem="7nh-sK-LS0" secondAttribute="centerY" type="default" id="63E-zz-JGv"/>
                             <constraint firstItem="MPt-4G-bkR" firstAttribute="trailing" secondItem="pmL-ud-Umy" secondAttribute="trailing" type="default" id="77b-wu-hQZ"/>
                             <constraint firstItem="hRN-1i-WIi" firstAttribute="trailing" secondItem="tz4-qO-fI2" secondAttribute="trailing" type="default" id="8Ky-VJ-DbU"/>
+                            <constraint firstItem="7nh-sK-LS0" firstAttribute="leading" secondItem="iI6-03-ex4" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="BE5-vn-8Qo"/>
                             <constraint firstItem="ELw-Mn-tZp" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" type="default" id="CdH-c4-dvE"/>
                             <constraint firstItem="iI6-03-ex4" firstAttribute="top" secondItem="tz4-qO-fI2" secondAttribute="top" constant="41" id="Ckb-Kx-Bay"/>
                             <constraint firstItem="gAN-pJ-Y0u" firstAttribute="leading" secondItem="C2a-HV-Z8W" secondAttribute="leading" type="default" id="DEC-aC-HEP"/>
                             <constraint firstAttribute="trailing" secondItem="gAN-pJ-Y0u" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Do4-xY-Zcc"/>
-                            <constraint firstItem="LpY-YZ-FFc" firstAttribute="centerX" secondItem="zAg-dE-zSE" secondAttribute="centerX" type="default" id="RfJ-Qq-3Wc"/>
-                            <constraint firstItem="iI6-03-ex4" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" constant="74" id="SOc-Sy-b1M"/>
+                            <constraint firstItem="C2a-HV-Z8W" firstAttribute="leading" secondItem="LpY-YZ-FFc" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Of1-xA-0KW"/>
                             <constraint firstItem="LpY-YZ-FFc" firstAttribute="centerY" secondItem="C2a-HV-Z8W" secondAttribute="centerY" type="default" id="SUf-58-yRr"/>
                             <constraint firstItem="LpY-YZ-FFc" firstAttribute="top" secondItem="tz4-qO-fI2" secondAttribute="top" constant="98" id="WE6-U4-NYW"/>
+                            <constraint firstItem="hRN-1i-WIi" firstAttribute="bottom" secondItem="tz4-qO-fI2" secondAttribute="bottom" type="default" id="X56-2x-Pgr"/>
                             <constraint firstAttribute="trailing" secondItem="7nh-sK-LS0" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="XKj-2n-E4u"/>
-                            <constraint firstItem="hRN-1i-WIi" firstAttribute="bottom" secondItem="tz4-qO-fI2" secondAttribute="bottom" type="default" id="aVY-AP-bCE"/>
                             <constraint firstItem="pmL-ud-Umy" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" type="default" id="bSc-mn-la1"/>
-                            <constraint firstItem="iI6-03-ex4" firstAttribute="trailing" secondItem="zAg-dE-zSE" secondAttribute="trailing" type="default" id="c1N-Rp-ydb"/>
                             <constraint firstItem="zAg-dE-zSE" firstAttribute="centerY" secondItem="MPt-4G-bkR" secondAttribute="centerY" type="default" id="coQ-N4-4cb"/>
                             <constraint firstItem="C2a-HV-Z8W" firstAttribute="baseline" secondItem="ELw-Mn-tZp" secondAttribute="baseline" type="default" id="d7v-2l-z87"/>
                             <constraint firstItem="gAN-pJ-Y0u" firstAttribute="centerY" secondItem="zAg-dE-zSE" secondAttribute="centerY" type="default" id="dbS-3c-KHo"/>
@@ -270,6 +188,7 @@
                         <outlet property="changeEvening" destination="gAN-pJ-Y0u" id="gGI-2d-fLb"/>
                         <outlet property="changeMorning" destination="7nh-sK-LS0" id="OwA-5y-sVB"/>
                         <outlet property="eveningLabel" destination="zAg-dE-zSE" id="J5d-HB-pHv"/>
+                        <outlet property="eventNavigationItem" destination="cbP-Ey-iB6" id="73d-Y6-bla"/>
                         <outlet property="eventPicker" destination="hRN-1i-WIi" id="Opr-tU-WC3"/>
                         <outlet property="morningLabel" destination="iI6-03-ex4" id="gki-mC-Reg"/>
                     </connections>
@@ -309,6 +228,9 @@
                             <outlet property="delegate" destination="ltF-k6-z99" id="tpB-tX-kjM"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="weekTable" destination="xu1-Dm-m6Y" id="egn-Bn-8Bs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Mc-Ma-mh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -322,14 +244,12 @@
         <class className="AddEventViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddEventViewController.h"/>
             <relationships>
-                <relationship kind="action" name="changeAfternoon:"/>
-                <relationship kind="action" name="changeEvening:"/>
-                <relationship kind="action" name="changeMorning:"/>
                 <relationship kind="outlet" name="afternoonLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="changeAfternoon" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="changeEvening" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="changeMorning" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="eveningLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="eventNavigationItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="eventPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="morningLabel" candidateClass="UILabel"/>
             </relationships>
@@ -337,20 +257,14 @@
         <class className="CalendarViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CalendarViewController.h"/>
         </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
         <class className="ViewWeekViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewWeekViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="weekTable" candidateClass="UITableView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -18,7 +18,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
@@ -35,15 +35,14 @@
         currentDate = [[VariableStore sharedInstance] startDate];
     
     //Add email overseer button
-    UIToolbar *toolbar = [[UIToolbar alloc] init];
-    toolbar.frame = CGRectMake(0, self.view.frame.size.height-85, self.view.frame.size.width, 44);
-    [toolbar setTintColor:[UIColor grayColor]];
     NSMutableArray *items = [[NSMutableArray alloc] init];
     [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"Email Overseer" style:UIBarButtonItemStyleBordered
                                                      target:self action:@selector(emailWeek)]];
-    [toolbar setItems:items animated:NO];
-    [self.view addSubview:toolbar];
-        
+    
+    [self.navigationController setToolbarHidden:NO];
+    [self.navigationController.toolbar setTintColor:[UIColor grayColor]];
+    [self setToolbarItems:items animated:YES ];
+    
     
     //Get the start of the week and the end of the week
     NSDateComponents *weekdayComponents = [calendar components:NSWeekdayCalendarUnit|NSWeekOfMonthCalendarUnit|NSWeekCalendarUnit|NSMonthCalendarUnit fromDate:currentDate];
@@ -86,9 +85,7 @@
                                                               timeStyle:NSDateFormatterNoStyle];
         currentActivity = [dataDictionary objectForKey:dateString];
         dayOfWeek = [[NSCalendar currentCalendar] components:NSMonthCalendarUnit fromDate:currentDayOfWeek];
-        NSLog(@"This is the month we are in: %d",currentMonth);
-        NSLog(@"This is the month of this day of the week: %d",[dayOfWeek month]);
-        //if ([dayOfWeek != [calendar first])
+       
         switch (i) {
             case 1:
                 if ([dayOfWeek month] == currentMonth)

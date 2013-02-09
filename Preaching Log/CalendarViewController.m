@@ -35,6 +35,22 @@
 	self.toolbar.items = [NSArray array];
 	[self.view addSubview:self.toolbar]; */
     
+    //Get the users name
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *username = [defaults objectForKey:@"username"];
+    
+    if (username == nil) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:@"To begin using this application please enter your name. This is a one time process." delegate:self cancelButtonTitle:@"Save" otherButtonTitles:nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alert show];
+        self.navigationItem.title =@"Preaching Log";
+    }
+    else {
+        NSString *firstName;
+        NSScanner *scanner = [NSScanner scannerWithString:username];
+        [scanner scanUpToString:@" " intoString:&firstName];
+        self.navigationItem.title =[NSString stringWithFormat:@"%@'s Preaching Log",firstName];
+    }
     
     
     //Create the calendar
@@ -61,9 +77,7 @@
 	[self.view addSubview:self.mainController.view];
 	[self.mainController viewDidAppear:NO];
 	
-    UIToolbar *toolbar = [[UIToolbar alloc] init];
-    toolbar.frame = CGRectMake(0, self.view.frame.size.height-85, self.view.frame.size.width, 44);
-    [toolbar setTintColor:[UIColor grayColor]];
+    
     NSMutableArray *items = [[NSMutableArray alloc] init];
     //Create bottom bar items
     [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"List Week" style:UIBarButtonItemStyleBordered
@@ -72,10 +86,11 @@
                                                      target:self action:@selector(removeOldEvents)]];
     [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"Contacts Log" style:UIBarButtonItemStyleBordered
                                                      target:self action:@selector(viewContactsLog)]];
-    [toolbar setItems:items animated:NO];
-    [self.view addSubview:toolbar];
     
-    self.navigationItem.title =@"Preaching Log";
+    [self.navigationController.toolbar setTintColor:[UIColor grayColor]];
+    [self.navigationController setToolbarHidden:NO];
+    [self setToolbarItems:items animated:YES];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                               target:self action:@selector(addEvent)];
@@ -161,11 +176,64 @@
 }
 
 -(void) removeOldEvents {
-    [[TKAlertCenter defaultCenter] postAlertWithMessage:@"This feature has not been implemented yet"];
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Warning!"
+                          message:@"This will erase all events older than 2 months"
+                          delegate: self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"OK", nil];
+    [alert show];
+    
+    
     //This clears all saved dates
     /*NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
      [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];*/
      
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 0)
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
+        [defaults setObject:[[alertView textFieldAtIndex:0] text] forKey:@"username"];
+        NSString *firstName;
+        NSScanner *scanner = [NSScanner scannerWithString:[[alertView textFieldAtIndex:0] text]];
+        [scanner scanUpToString:@" " intoString:&firstName];
+        self.navigationItem.title =[NSString stringWithFormat:@"%@'s Preaching Log",firstName];
+    }else if(buttonIndex == 1)
+    {
+        [self confirmRemove];
+    }
+}
+-(void) confirmRemove {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *dataDictionary = [[defaults objectForKey:@"dataDictionary"] mutableCopy];
+    NSMutableDictionary *workingDictionary = [[NSMutableDictionary alloc] initWithDictionary:dataDictionary];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+
+    [dateFormat setDateStyle:NSDateFormatterShortStyle];
+    [dateFormat setTimeStyle:NSDateFormatterNoStyle];
+    NSDate *date;
+    NSTimeInterval secondsBetween;
+    int numberOfDays;
+    //NSLog(@"This is the current Date %@",[NSDate date]);
+    for(id key in dataDictionary) {
+        
+        date = [dateFormat dateFromString:key];
+        secondsBetween = [[NSDate date] timeIntervalSinceDate: date];
+        numberOfDays = secondsBetween / 86400;
+        
+        if (numberOfDays >= 30) {
+            NSLog(@"The removed key %@",key);
+            [workingDictionary removeObjectForKey:key];
+        }
+        //NSLog(@"This is the date %@ this is the number of days between %d",key, numberOfDays);
+        //NSLog(@"key=%@ value=%@", key, [dataDictionary objectForKey:key]);
+    }
+    [defaults setObject:workingDictionary forKey:@"dataDictionary"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DataSaved" object:nil];
+    [[TKAlertCenter defaultCenter] postAlertWithMessage:@"The events have been successfully removed"];
 }
 
 -(void) viewContactsLog {
@@ -175,14 +243,6 @@
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
-}
-
-- (void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [_calendarView.tableView reloadData];
-    
-    
 }
 
 @end

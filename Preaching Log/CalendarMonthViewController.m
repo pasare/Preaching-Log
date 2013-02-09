@@ -17,7 +17,11 @@
 	[self.monthView selectDate:[NSDate month]];
     VariableStore *globals =[VariableStore sharedInstance];
     globals.startDate = [NSDate month];
-    globals.calendar = self.tableView;
+    
+    //Notification for when table needs to be updated
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dataSaved:)
+                                                 name:@"DataSaved" object:nil];
     
 }
 
@@ -25,7 +29,7 @@
 
 #pragma mark - MonthView Delegate & DataSource
 - (NSArray*) calendarMonthView:(TKCalendarMonthView*)monthView marksFromDate:(NSDate*)startDate toDate:(NSDate*)lastDate{
-	[self generateRandomDataForStartDate:startDate endDate:lastDate];
+    [self generateTableMarks:startDate endDate:lastDate];
 	return self.dataArray;
 }
 - (void) calendarMonthView:(TKCalendarMonthView*)monthView didSelectDate:(NSDate*)date{
@@ -78,7 +82,7 @@
 }
 
 
-- (void) generateRandomDataForStartDate:(NSDate*)start endDate:(NSDate*)end{
+- (void) generateTableMarks:(NSDate*)start endDate:(NSDate*)end{
 	// this function sets up dataArray & dataDictionary
 	// dataArray: has boolean markers for each day to pass to the calendar view (via the delegate function)
 	// dataDictionary: has items that are associated with date keys (for tableview)
@@ -122,8 +126,9 @@
 	
 }
 
--(void) refreshTable {
-    [self.tableView reloadData];
+- (void) dataSaved:(NSNotification *)notification{
+    [self.monthView reload];
+    
 }
 
 

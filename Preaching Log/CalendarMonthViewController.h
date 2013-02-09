@@ -14,7 +14,10 @@
 
 @property (strong,nonatomic) NSMutableArray *dataArray;
 @property (strong,nonatomic) NSMutableDictionary *dataDictionary;
+@property (strong,nonatomic) TKCalendarMonthView *monthView;
+@property (strong,nonatomic) NSDate *startDate;
+@property (strong,nonatomic) NSDate *lastDate;
 
-- (void) generateRandomDataForStartDate:(NSDate*)start endDate:(NSDate*)end;
+- (void) generateTableMarks:(NSDate*)start endDate:(NSDate*)end;
 
 @end

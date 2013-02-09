@@ -17,6 +17,10 @@
 		990C318516C20C670008E90A /* ViewWeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C318416C20C670008E90A /* ViewWeekViewController.m */; };
 		990C31A816C368D40008E90A /* CustomCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990C31A716C368D40008E90A /* CustomCellView.xib */; };
 		990C31AB16C36B7F0008E90A /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C31AA16C36B7F0008E90A /* TableCell.m */; };
+		990C31AD16C61A230008E90A /* log_book.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 990C31AC16C61A230008E90A /* log_book.jpg */; };
+		990C31AF16C61D150008E90A /* cr32_action_contents2.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31AE16C61D150008E90A /* cr32_action_contents2.png */; };
+		990C31B116C61D5D0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B016C61D5D0008E90A /* book.png */; };
+		990C31B316C61D6B0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B216C61D6B0008E90A /* book.png */; };
 		99959A6D16B756DC00E69A2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6C16B756DC00E69A2F /* UIKit.framework */; };
 		99959A6F16B756DC00E69A2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6E16B756DC00E69A2F /* Foundation.framework */; };
 		99959A7116B756DC00E69A2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A7016B756DC00E69A2F /* CoreGraphics.framework */; };
@@ -28,8 +32,6 @@
 		99959A8316B756DC00E69A2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99959A8216B756DC00E69A2F /* Default-568h@2x.png */; };
 		99959A8616B756DC00E69A2F /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99959A8416B756DC00E69A2F /* MainStoryboard_iPhone.storyboard */; };
 		99959A8916B756DC00E69A2F /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99959A8716B756DC00E69A2F /* MainStoryboard_iPad.storyboard */; };
-		99959A8C16B756DC00E69A2F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99959A8B16B756DC00E69A2F /* MasterViewController.m */; };
-		99959A8F16B756DC00E69A2F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99959A8E16B756DC00E69A2F /* DetailViewController.m */; };
 		99959A9716B756DC00E69A2F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A9616B756DC00E69A2F /* SenTestingKit.framework */; };
 		99959A9816B756DC00E69A2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6C16B756DC00E69A2F /* UIKit.framework */; };
 		99959A9916B756DC00E69A2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6E16B756DC00E69A2F /* Foundation.framework */; };
@@ -88,6 +90,10 @@
 		990C31A716C368D40008E90A /* CustomCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellView.xib; sourceTree = "<group>"; };
 		990C31A916C36B7E0008E90A /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
 		990C31AA16C36B7F0008E90A /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
+		990C31AC16C61A230008E90A /* log_book.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = log_book.jpg; sourceTree = "<group>"; };
+		990C31AE16C61D150008E90A /* cr32_action_contents2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cr32_action_contents2.png; sourceTree = "<group>"; };
+		990C31B016C61D5D0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
+		990C31B216C61D6B0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		99959A6816B756DC00E69A2F /* Preaching Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Preaching Log.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99959A6C16B756DC00E69A2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		99959A6E16B756DC00E69A2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,10 +109,6 @@
 		99959A8216B756DC00E69A2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		99959A8516B756DC00E69A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		99959A8816B756DC00E69A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		99959A8A16B756DC00E69A2F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		99959A8B16B756DC00E69A2F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		99959A8D16B756DC00E69A2F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		99959A8E16B756DC00E69A2F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		99959A9516B756DC00E69A2F /* Preaching LogTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Preaching LogTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99959A9616B756DC00E69A2F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		99959A9E16B756DC00E69A2F /* Preaching LogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Preaching LogTests-Info.plist"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		99959A5D16B756DC00E69A2F = {
 			isa = PBXGroup;
 			children = (
+				990C31B216C61D6B0008E90A /* book.png */,
 				990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */,
 				99959A7216B756DC00E69A2F /* Preaching Log */,
 				99959A9C16B756DC00E69A2F /* Preaching LogTests */,
@@ -202,10 +205,6 @@
 				990C316416BA14160008E90A /* AddEventViewController.m */,
 				990C318316C20C660008E90A /* ViewWeekViewController.h */,
 				990C318416C20C670008E90A /* ViewWeekViewController.m */,
-				99959A8A16B756DC00E69A2F /* MasterViewController.h */,
-				99959A8B16B756DC00E69A2F /* MasterViewController.m */,
-				99959A8D16B756DC00E69A2F /* DetailViewController.h */,
-				99959A8E16B756DC00E69A2F /* DetailViewController.m */,
 				990C317016BCAB120008E90A /* VariableStore.h */,
 				990C317116BCAB120008E90A /* VariableStore.m */,
 				990C31A916C36B7E0008E90A /* TableCell.h */,
@@ -218,6 +217,9 @@
 		99959A7316B756DC00E69A2F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				990C31B016C61D5D0008E90A /* book.png */,
+				990C31AE16C61D150008E90A /* cr32_action_contents2.png */,
+				990C31AC16C61A230008E90A /* log_book.jpg */,
 				990C318116BF5C220008E90A /* red_uibutton.png */,
 				990C317F16BF5C110008E90A /* green_uibutton.png */,
 				990C317D16BF5BFF0008E90A /* grey_uibutton.png */,
@@ -363,6 +365,10 @@
 				990C318016BF5C110008E90A /* green_uibutton.png in Resources */,
 				990C318216BF5C220008E90A /* red_uibutton.png in Resources */,
 				990C31A816C368D40008E90A /* CustomCellView.xib in Resources */,
+				990C31AD16C61A230008E90A /* log_book.jpg in Resources */,
+				990C31AF16C61D150008E90A /* cr32_action_contents2.png in Resources */,
+				990C31B116C61D5D0008E90A /* book.png in Resources */,
+				990C31B316C61D6B0008E90A /* book.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,8 +405,6 @@
 			files = (
 				99959A7916B756DC00E69A2F /* main.m in Sources */,
 				99959A7D16B756DC00E69A2F /* AppDelegate.m in Sources */,
-				99959A8C16B756DC00E69A2F /* MasterViewController.m in Sources */,
-				99959A8F16B756DC00E69A2F /* DetailViewController.m in Sources */,
 				99959B0916B7712700E69A2F /* CalendarViewController.m in Sources */,
 				990C312216B9F9D70008E90A /* CalendarMonthViewController.m in Sources */,
 				990C316516BA14160008E90A /* AddEventViewController.m in Sources */,

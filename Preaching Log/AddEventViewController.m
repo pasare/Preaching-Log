@@ -19,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -27,6 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([[VariableStore sharedInstance] currentDate] != nil)
+        self.navigationItem.title = [[VariableStore sharedInstance] currentDate];
+    else
+        self.navigationItem.title = @"Add Event";
 	_eventsArray = [[NSMutableArray alloc] init];
     [_eventsArray addObject:@"1 Door to Door Preaching"];
     [_eventsArray addObject:@"2 Street Preaching"];
@@ -131,12 +135,15 @@
     [defaults setObject:dataDictionary forKey:@"dataDictionary"];
     
     //Go back to calendar
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DataSaved" object:nil];
     [[TKAlertCenter defaultCenter] postAlertWithMessage:@"The events have been sucessfully posted!"];
-    [self.navigationController popViewControllerAnimated:YES];
+    [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(backToCalendar) userInfo:nil repeats:NO];
     
     
-    //AddEventViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addEventView"];
-    //[self.navigationController pushViewController:viewController animated:YES];
+}
+
+-(void) backToCalendar{
+   [self.navigationController popViewControllerAnimated:YES]; 
 }
 
 @end

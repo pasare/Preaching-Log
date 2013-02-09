@@ -12,6 +12,7 @@
 #import <TapkuLibrary/TapkuLibrary.h>
 
 @interface ViewWeekViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UITableView *weekTable;
 @property NSMutableArray *tableArray;
 
 @end

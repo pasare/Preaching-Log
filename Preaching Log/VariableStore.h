@@ -7,16 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CalendarMonthViewController.h"
 
 @interface VariableStore : NSObject
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSString *currentDate;
 @property (nonatomic) NSDate *currentDateActual;
-@property (nonatomic,) UITableView *calendar;
 
 + (VariableStore *)sharedInstance;
 - (NSDate*) startDate;
 - (NSString*) currentDate;
 - (NSDate*) currentDateActual;
-- (UITableView*) calendar;
 @end
