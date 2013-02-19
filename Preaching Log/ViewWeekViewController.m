@@ -36,7 +36,7 @@
     
     //Add email overseer button
     NSMutableArray *items = [[NSMutableArray alloc] init];
-    [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"Email Overseer" style:UIBarButtonItemStyleBordered
+    [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"Send To Overseer" style:UIBarButtonItemStyleBordered
                                                      target:self action:@selector(emailWeek)]];
     
     [self.navigationController setToolbarHidden:NO];
