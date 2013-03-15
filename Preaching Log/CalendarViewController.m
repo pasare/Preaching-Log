@@ -178,10 +178,10 @@
 -(void) removeOldEvents {
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"Warning!"
-                          message:@"This will erase all events older than 2 months"
+                          message:@"This will erase all events older than 30 days"
                           delegate: self
                           cancelButtonTitle:@"Cancel"
-                          otherButtonTitles:@"OK", nil];
+                          otherButtonTitles:@"Confirm", nil];
     [alert show];
     
     
@@ -191,8 +191,11 @@
      
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(buttonIndex == 0)
-    {
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"Confirm"]) {
+        [self confirmRemove];
+    }
+    else if([title isEqualToString:@"Save"]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
         [defaults setObject:[[alertView textFieldAtIndex:0] text] forKey:@"username"];
@@ -200,9 +203,9 @@
         NSScanner *scanner = [NSScanner scannerWithString:[[alertView textFieldAtIndex:0] text]];
         [scanner scanUpToString:@" " intoString:&firstName];
         self.navigationItem.title =[NSString stringWithFormat:@"%@'s Preaching Log",firstName];
-    }else if(buttonIndex == 1)
-    {
-        [self confirmRemove];
+    }
+    else if([title isEqualToString:@"Cancel"]){
+        
     }
 }
 -(void) confirmRemove {
@@ -241,8 +244,12 @@
 }
 
 
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+- (BOOL)shouldAutorotate {
     return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end
