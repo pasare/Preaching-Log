@@ -36,5 +36,102 @@
     return _startDate;
 }
 
+-(NSManagedObjectContext *)context {
+    return _context;
+}
+
+- (NSFetchedResultsController*) fetchedContactsController{
+    return _fetchedEventsController;
+}
+
+-(BOOL)accessGranted {
+    return _accessGranted;
+}
+
+-(NSArray*)ABcontactsArray {
+    return _ABcontactsArray;
+}
+
+//Methods for the iOS addressbook
+-(void) displayContacts {
+    [[VariableStore sharedInstance] setAccessGranted:NO];
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL,NULL);
+    
+    if (ABAddressBookRequestAccessWithCompletion != NULL) {
+        //First time access granted
+        if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
+            ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+                [[VariableStore sharedInstance] setAccessGranted:granted];
+            });
+        }
+        // Authorized access
+        else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized){
+            [[VariableStore sharedInstance] setAccessGranted:YES];
+        }
+        else {
+            //Access has been denied
+            UIAlertView *failedAlert = [[UIAlertView alloc] initWithTitle:@"Alert!" message:@"Unable to access contacts, grant this application access in your privacy settings" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil ];
+            [failedAlert show];
+        }
+    }
+    //Legacy device access request is not required
+    else {
+        [[VariableStore sharedInstance] setAccessGranted:YES];
+    }
+    
+    
+    if ([[VariableStore sharedInstance] accessGranted]) {
+        NSArray *tempContactsArray;
+        [self CheckIfGroupExistsWithName:@"Zion America"];
+        ABRecordRef zionAmericaGroup = ABAddressBookGetGroupWithRecordID(addressBook,[[VariableStore sharedInstance] groupId]);
+        tempContactsArray = (__bridge_transfer NSArray*)ABGroupCopyArrayOfAllMembersWithSortOrdering(zionAmericaGroup, kABPersonSortByFirstName);
+        [[VariableStore sharedInstance] setABcontactsArray:tempContactsArray];
+    }
+    
+    //CFRelease(addressBook);
+}
+
+//Check for group name
+-(void) CheckIfGroupExistsWithName:(NSString*)groupName {
+    
+    
+    BOOL hasGroup = NO;
+    //checks to see if the group is created and creates group if it does not exist
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+    CFIndex groupCount = ABAddressBookGetGroupCount(addressBook);
+    CFArrayRef groupLists= ABAddressBookCopyArrayOfAllGroups(addressBook);
+    
+    for (int i=0; i<groupCount; i++) {
+        ABRecordRef currentCheckedGroup = CFArrayGetValueAtIndex(groupLists, i);
+        NSString *currentGroupName = (__bridge NSString *)ABRecordCopyCompositeName(currentCheckedGroup);
+        
+        if ([currentGroupName isEqualToString:groupName]){
+            //!!! important - save groupID for later use
+            [[VariableStore sharedInstance] setGroupId:ABRecordGetRecordID(currentCheckedGroup)];
+            hasGroup=YES;
+        }
+    }
+    
+    if (hasGroup==NO){
+        //id the group does not exist you can create one
+        [self createNewGroup:groupName];
+    }
+    
+    CFRelease(addressBook);
+}
+
+-(void) createNewGroup:(NSString*)groupName {
+    
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+    ABRecordRef newGroup = ABGroupCreate();
+    ABRecordSetValue(newGroup, kABGroupNameProperty,(__bridge CFTypeRef)(groupName), nil);
+    ABAddressBookAddRecord(addressBook, newGroup, nil);
+    ABAddressBookSave(addressBook, nil);
+    CFRelease(addressBook);
+    
+    //save groupId for later use
+    [[VariableStore sharedInstance] setGroupId:ABRecordGetRecordID(newGroup)];
+    CFRelease(newGroup);
+}
 
 @end

@@ -22,6 +22,10 @@
 		990C31B116C61D5D0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B016C61D5D0008E90A /* book.png */; };
 		990C31B316C61D6B0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B216C61D6B0008E90A /* book.png */; };
 		990C31B516C6860B0008E90A /* cr32_action_contents2 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B416C6860B0008E90A /* cr32_action_contents2 (1).png */; };
+		994247D41722EC0200B60305 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994247D31722EC0200B60305 /* AddressBookUI.framework */; };
+		994247D61722F22800B60305 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994247D51722F22800B60305 /* AddressBook.framework */; };
+		994247DA1722F5C000B60305 /* ContactLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994247D91722F5C000B60305 /* ContactLogViewController.m */; };
+		994247DE1723126B00B60305 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 994247DD1723126B00B60305 /* Contact.m */; };
 		99959A6D16B756DC00E69A2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6C16B756DC00E69A2F /* UIKit.framework */; };
 		99959A6F16B756DC00E69A2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6E16B756DC00E69A2F /* Foundation.framework */; };
 		99959A7116B756DC00E69A2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A7016B756DC00E69A2F /* CoreGraphics.framework */; };
@@ -42,6 +46,15 @@
 		99959AF416B75D5000E69A2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959AF316B75D5000E69A2F /* QuartzCore.framework */; };
 		99959AF616B75D6300E69A2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959AF516B75D6300E69A2F /* MapKit.framework */; };
 		99959B0916B7712700E69A2F /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99959B0816B7712700E69A2F /* CalendarViewController.m */; };
+		99CC12E01720F49E0012C01C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CC12DF1720F49E0012C01C /* CoreData.framework */; };
+		99CC12E41720F6CD0012C01C /* Preaching Log.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99CC12E21720F6CD0012C01C /* Preaching Log.xcdatamodeld */; };
+		99CC12E7172211E80012C01C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CC12E6172211E80012C01C /* Event.m */; };
+		99D87DBA1726255900A1785E /* sub_blue_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 99D87DB91726255900A1785E /* sub_blue_remove.png */; };
+		99DC0A9A1726280C00770C82 /* blue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DC0A991726280C00770C82 /* blue_button.png */; };
+		99EBD77C172634C1003042C7 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EBD77B172634C1003042C7 /* ActionSheetStringPicker.m */; };
+		99EBD77D172634C1003042C7 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EBD77B172634C1003042C7 /* ActionSheetStringPicker.m */; };
+		99EBD781172634D3003042C7 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EBD780172634D3003042C7 /* AbstractActionSheetPicker.m */; };
+		99EBD782172634D3003042C7 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EBD780172634D3003042C7 /* AbstractActionSheetPicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +109,12 @@
 		990C31B016C61D5D0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		990C31B216C61D6B0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		990C31B416C6860B0008E90A /* cr32_action_contents2 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cr32_action_contents2 (1).png"; path = "../../../Downloads/cr32_action_contents2 (1).png"; sourceTree = "<group>"; };
+		994247D31722EC0200B60305 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		994247D51722F22800B60305 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		994247D81722F5C000B60305 /* ContactLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactLogViewController.h; sourceTree = "<group>"; };
+		994247D91722F5C000B60305 /* ContactLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactLogViewController.m; sourceTree = "<group>"; };
+		994247DC1723126B00B60305 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		994247DD1723126B00B60305 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		99959A6816B756DC00E69A2F /* Preaching Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Preaching Log.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99959A6C16B756DC00E69A2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		99959A6E16B756DC00E69A2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -122,6 +141,16 @@
 		99959AF516B75D6300E69A2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		99959B0716B7712700E69A2F /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		99959B0816B7712700E69A2F /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		99CC12DF1720F49E0012C01C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		99CC12E31720F6CD0012C01C /* Preaching Log.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Preaching Log.xcdatamodel"; sourceTree = "<group>"; };
+		99CC12E5172211E80012C01C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		99CC12E6172211E80012C01C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		99D87DB91726255900A1785E /* sub_blue_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sub_blue_remove.png; sourceTree = "<group>"; };
+		99DC0A991726280C00770C82 /* blue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_button.png; sourceTree = "<group>"; };
+		99EBD77A172634C1003042C7 /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		99EBD77B172634C1003042C7 /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		99EBD77F172634D3003042C7 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		99EBD780172634D3003042C7 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +158,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				994247D61722F22800B60305 /* AddressBook.framework in Frameworks */,
+				994247D41722EC0200B60305 /* AddressBookUI.framework in Frameworks */,
+				99CC12E01720F49E0012C01C /* CoreData.framework in Frameworks */,
 				990C314516B9FF770008E90A /* libTapkuLibrary.a in Frameworks */,
 				99959AF616B75D6300E69A2F /* MapKit.framework in Frameworks */,
 				99959AF416B75D5000E69A2F /* QuartzCore.framework in Frameworks */,
@@ -163,6 +195,8 @@
 		99959A5D16B756DC00E69A2F = {
 			isa = PBXGroup;
 			children = (
+				994247D51722F22800B60305 /* AddressBook.framework */,
+				994247D31722EC0200B60305 /* AddressBookUI.framework */,
 				990C31B216C61D6B0008E90A /* book.png */,
 				990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */,
 				99959A7216B756DC00E69A2F /* Preaching Log */,
@@ -184,6 +218,7 @@
 		99959A6B16B756DC00E69A2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99CC12DF1720F49E0012C01C /* CoreData.framework */,
 				99959AF316B75D5000E69A2F /* QuartzCore.framework */,
 				99959AF516B75D6300E69A2F /* MapKit.framework */,
 				99959A6C16B756DC00E69A2F /* UIKit.framework */,
@@ -197,6 +232,10 @@
 		99959A7216B756DC00E69A2F /* Preaching Log */ = {
 			isa = PBXGroup;
 			children = (
+				99EBD77F172634D3003042C7 /* AbstractActionSheetPicker.h */,
+				99EBD780172634D3003042C7 /* AbstractActionSheetPicker.m */,
+				99EBD77A172634C1003042C7 /* ActionSheetStringPicker.h */,
+				99EBD77B172634C1003042C7 /* ActionSheetStringPicker.m */,
 				99959A7B16B756DC00E69A2F /* AppDelegate.h */,
 				99959A7C16B756DC00E69A2F /* AppDelegate.m */,
 				99959A8416B756DC00E69A2F /* MainStoryboard_iPhone.storyboard */,
@@ -213,6 +252,13 @@
 				990C31AA16C36B7F0008E90A /* TableCell.m */,
 				990C312016B9F9D70008E90A /* CalendarMonthViewController.h */,
 				990C312116B9F9D70008E90A /* CalendarMonthViewController.m */,
+				994247D81722F5C000B60305 /* ContactLogViewController.h */,
+				994247D91722F5C000B60305 /* ContactLogViewController.m */,
+				99CC12E5172211E80012C01C /* Event.h */,
+				99CC12E6172211E80012C01C /* Event.m */,
+				994247DC1723126B00B60305 /* Contact.h */,
+				994247DD1723126B00B60305 /* Contact.m */,
+				99CC12E21720F6CD0012C01C /* Preaching Log.xcdatamodeld */,
 				99959A7316B756DC00E69A2F /* Supporting Files */,
 			);
 			path = "Preaching Log";
@@ -221,6 +267,8 @@
 		99959A7316B756DC00E69A2F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				99DC0A991726280C00770C82 /* blue_button.png */,
+				99D87DB91726255900A1785E /* sub_blue_remove.png */,
 				990C31B416C6860B0008E90A /* cr32_action_contents2 (1).png */,
 				990C31B016C61D5D0008E90A /* book.png */,
 				990C31AE16C61D150008E90A /* cr32_action_contents2.png */,
@@ -373,6 +421,8 @@
 				990C31B116C61D5D0008E90A /* book.png in Resources */,
 				990C31B316C61D6B0008E90A /* book.png in Resources */,
 				990C31B516C6860B0008E90A /* cr32_action_contents2 (1).png in Resources */,
+				99D87DBA1726255900A1785E /* sub_blue_remove.png in Resources */,
+				99DC0A9A1726280C00770C82 /* blue_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +465,12 @@
 				990C317216BCAB120008E90A /* VariableStore.m in Sources */,
 				990C318516C20C670008E90A /* ViewWeekViewController.m in Sources */,
 				990C31AB16C36B7F0008E90A /* TableCell.m in Sources */,
+				99CC12E41720F6CD0012C01C /* Preaching Log.xcdatamodeld in Sources */,
+				99CC12E7172211E80012C01C /* Event.m in Sources */,
+				994247DA1722F5C000B60305 /* ContactLogViewController.m in Sources */,
+				994247DE1723126B00B60305 /* Contact.m in Sources */,
+				99EBD77C172634C1003042C7 /* ActionSheetStringPicker.m in Sources */,
+				99EBD781172634D3003042C7 /* AbstractActionSheetPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +479,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				99959AA416B756DC00E69A2F /* Preaching_LogTests.m in Sources */,
+				99EBD77D172634C1003042C7 /* ActionSheetStringPicker.m in Sources */,
+				99EBD782172634D3003042C7 /* AbstractActionSheetPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +688,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		99CC12E21720F6CD0012C01C /* Preaching Log.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				99CC12E31720F6CD0012C01C /* Preaching Log.xcdatamodel */,
+			);
+			currentVersion = 99CC12E31720F6CD0012C01C /* Preaching Log.xcdatamodel */;
+			path = "Preaching Log.xcdatamodeld";
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 99959A5F16B756DC00E69A2F /* Project object */;
 }

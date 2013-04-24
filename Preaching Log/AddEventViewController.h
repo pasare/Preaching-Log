@@ -10,15 +10,20 @@
 #import "VariableStore.h"
 #import <TapkuLibrary/TapkuLibrary.h>
 #import "CalendarMonthViewController.h"
+#import "Event.h"
+#import "ActionSheetStringPicker.h"
+#import "Contact.h"
 
-@interface AddEventViewController : UIViewController
+@interface AddEventViewController : UIViewController<ABPersonViewControllerDelegate,ABNewPersonViewControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIToolbar *contactsBar;
+@property (weak, nonatomic) IBOutlet UITableView *eventsTable;
 @property (weak, nonatomic) IBOutlet UINavigationItem *eventNavigationItem;
-@property (weak, nonatomic) IBOutlet UILabel *eveningLabel;
-@property (weak, nonatomic) IBOutlet UILabel *afternoonLabel;
-@property (weak, nonatomic) IBOutlet UILabel *morningLabel;
-@property (weak, nonatomic) IBOutlet UIPickerView *eventPicker;
-@property (weak, nonatomic) IBOutlet UIButton *changeEvening;
-@property (weak, nonatomic) IBOutlet UIButton *changeAfternoon;
-@property (weak, nonatomic) IBOutlet UIButton *changeMorning;
+@property (weak, nonatomic) IBOutlet UITableView *contactsTable;
+
+@property NSArray *contactsArray;
+@property NSMutableDictionary *dailyEventsDictionary;
+@property UIButton *changeMorning;
+@property UIButton *changeAfternoon;
+@property UIButton *changeEvening;
 
 @end

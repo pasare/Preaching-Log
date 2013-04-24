@@ -10,9 +10,11 @@
 #import "VariableStore.h"
 #import "TableCell.h"
 #import <TapkuLibrary/TapkuLibrary.h>
+#import "Contact.h"
 
 @interface ViewWeekViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UITableView *weekTable;
 @property NSMutableArray *tableArray;
+@property NSMutableDictionary *contactsDictionary;
 
 @end

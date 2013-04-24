@@ -16,7 +16,8 @@
 	[super viewDidLoad];
 	[self.monthView selectDate:[NSDate month]];
     VariableStore *globals =[VariableStore sharedInstance];
-    globals.startDate = [NSDate month];
+    NSDate *modifiedDate = [[NSDate month] dateByAddingTimeInterval:4*60*60];
+    globals.startDate = modifiedDate;
     
     //Notification for when table needs to be updated
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -89,31 +90,37 @@
 	
 	NSLog(@"Delegate Range: %@ %@ %d",start,end,[start daysBetweenDate:end]);
 	
-    //Retrieve the events the user has saved, if this is first time create fresh
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //Retrieve the events the user has saved
+    NSError *error;
+    NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Event"];
+    
     self.dataArray = [NSMutableArray array];
     self.dataDictionary = [NSMutableDictionary dictionary];
-	NSDictionary *memoryDictionary = [defaults objectForKey:@"dataDictionary"];
-    if (memoryDictionary == nil) {
-        [defaults setObject:self.dataDictionary forKey:@"dataDictionary"];
-    }
 	NSDate *d = start;
     NSDate *modifiedDate;
-    NSString *dateString;
 	while(YES){
         modifiedDate = [d dateByAddingTimeInterval:8*60*60];
-        dateString = [NSDateFormatter localizedStringFromDate:modifiedDate
-                                    dateStyle:NSDateFormatterShortStyle
-                                    timeStyle:NSDateFormatterNoStyle];
-		if ([memoryDictionary objectForKey:dateString] != nil) {
-            [self.dataDictionary setObject:[memoryDictionary objectForKey:dateString] forKey:d];
-            [self.dataArray addObject:[NSNumber numberWithBool:YES]];
+        //search for this date
+        NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(date == %@)", modifiedDate];
+        [request setPredicate:predicate];
+        NSArray *results = [context executeFetchRequest:request error:&error];
+        if (error != nil) {
+            //Deal with failure
+        }
+        else {
+            if (results.count > 0) {
+                NSMutableArray *titlesArray = [[NSMutableArray alloc] init];
+                for (Event *event in results) {
+                    [titlesArray addObject:event.title];
+                }
+                [self.dataDictionary setObject:titlesArray forKey:d];
+                [self.dataArray addObject:[NSNumber numberWithBool:YES]];
+            }
+            else
+                [self.dataArray addObject:[NSNumber numberWithBool:NO]];
         }
 
-        else
-			[self.dataArray addObject:[NSNumber numberWithBool:NO]];
-		
-		
 		TKDateInformation info = [d dateInformationWithTimeZone:[NSTimeZone systemTimeZone]];
 		info.day++;
         

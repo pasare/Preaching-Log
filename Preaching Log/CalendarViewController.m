@@ -29,6 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Get the contacts
+    [[VariableStore sharedInstance] displayContacts];
+    
     //Programatically create the toolbar
     /*self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
 	self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -56,6 +60,8 @@
     //Create the calendar
 	_calendarView = [[CalendarMonthViewController alloc] initWithSunday:YES];
     [self setupWithMainController:_calendarView];
+    
+    
     
 }
 
@@ -94,6 +100,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                               target:self action:@selector(addEvent)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteEvent)];
 	if(self.currentPopoverController!=nil){
 		
 		UIBarButtonItem *item = [[self.toolbar items] objectAtIndex:0];
@@ -165,9 +172,59 @@
 -(void) addEvent {
     //Keep track of the date that was selected
     
-    //Move to add detail screen
+    //check to ensure a date is selected
+        //Move to add detail screen
     AddEventViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addEventView"];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+//delete the days events
+-(void)deleteEvent {
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Delete Events"
+                          message:@"This will erase the days events"
+                          delegate: self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"Delete", nil];
+    [alert show];
+}
+
+-(void)confirmDeleteEvent {
+    NSError *error;
+    NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Event"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(date == %@)", [[VariableStore sharedInstance] currentDateActual]];
+    [request setPredicate:predicate];
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (error != nil) {
+        //Deal with failure
+    }
+    else {
+        if (results.count > 0) {
+            for (Event * event in results){
+                [context deleteObject:event];
+            }
+            //Save changes
+            if (![context save:&error]) {
+                // Handle the error.
+            }
+            
+            int64_t delayInSeconds = .7;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"DataSaved" object:nil];
+               [[TKAlertCenter defaultCenter] postAlertWithMessage:@"The events have been deleted sucessfully!"];
+            });
+        
+        }
+        else {
+            int64_t delayInSeconds = 1;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [[TKAlertCenter defaultCenter] postAlertWithMessage:@"There are no events to delete"];
+            });
+        }
+    }
 }
 
 -(void) viewWeek {
@@ -196,51 +253,60 @@
         [self confirmRemove];
     }
     else if([title isEqualToString:@"Save"]) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
-        [defaults setObject:[[alertView textFieldAtIndex:0] text] forKey:@"username"];
-        NSString *firstName;
-        NSScanner *scanner = [NSScanner scannerWithString:[[alertView textFieldAtIndex:0] text]];
-        [scanner scanUpToString:@" " intoString:&firstName];
-        self.navigationItem.title =[NSString stringWithFormat:@"%@'s Preaching Log",firstName];
+        [self confirmSaveUserName:alertView];
+    }
+    if ([title isEqualToString:@"Delete"]) {
+        [self confirmDeleteEvent];
     }
     else if([title isEqualToString:@"Cancel"]){
         
     }
 }
--(void) confirmRemove {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary *dataDictionary = [[defaults objectForKey:@"dataDictionary"] mutableCopy];
-    NSMutableDictionary *workingDictionary = [[NSMutableDictionary alloc] initWithDictionary:dataDictionary];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
 
+-(void) confirmSaveUserName:(UIAlertView *) alertView {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
+    [defaults setObject:[[alertView textFieldAtIndex:0] text] forKey:@"username"];
+    NSString *firstName;
+    NSScanner *scanner = [NSScanner scannerWithString:[[alertView textFieldAtIndex:0] text]];
+    [scanner scanUpToString:@" " intoString:&firstName];
+    self.navigationItem.title =[NSString stringWithFormat:@"%@'s Preaching Log",firstName];
+}
+-(void) confirmRemove {
+    NSError *error;
+    NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Event"];
+    //NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(date == %@)", date];
+    //[request setPredicate:predicate];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    
     [dateFormat setDateStyle:NSDateFormatterShortStyle];
     [dateFormat setTimeStyle:NSDateFormatterNoStyle];
-    NSDate *date;
+    
     NSTimeInterval secondsBetween;
     int numberOfDays;
-    //NSLog(@"This is the current Date %@",[NSDate date]);
-    for(id key in dataDictionary) {
-        
-        date = [dateFormat dateFromString:key];
-        secondsBetween = [[NSDate date] timeIntervalSinceDate: date];
-        numberOfDays = secondsBetween / 86400;
-        
-        if (numberOfDays >= 30) {
-            NSLog(@"The removed key %@",key);
-            [workingDictionary removeObjectForKey:key];
-        }
-        //NSLog(@"This is the date %@ this is the number of days between %d",key, numberOfDays);
-        //NSLog(@"key=%@ value=%@", key, [dataDictionary objectForKey:key]);
+    
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (error != nil) {
+        //Deal with failure
     }
-    [defaults setObject:workingDictionary forKey:@"dataDictionary"];
+    else {
+        if (results.count > 0) {
+            for (Event * event in results){
+                secondsBetween = [[NSDate date] timeIntervalSinceDate: event.date];
+                numberOfDays = secondsBetween / 86400;
+                if (numberOfDays >= 30)
+                    [context deleteObject:event];
+            }
+        }
+    }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DataSaved" object:nil];
     [[TKAlertCenter defaultCenter] postAlertWithMessage:@"The events have been successfully removed"];
 }
 
 -(void) viewContactsLog {
-    [[TKAlertCenter defaultCenter] postAlertWithMessage:@"This feature has not been implemented yet"];
+    [self performSegueWithIdentifier: @"ContactsLogSegue" sender: self];
 }
 
 

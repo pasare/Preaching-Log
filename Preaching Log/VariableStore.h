@@ -13,9 +13,21 @@
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSString *currentDate;
 @property (nonatomic) NSDate *currentDateActual;
+@property (nonatomic) NSManagedObjectContext *context;
+@property (nonatomic) NSFetchedResultsController *fetchedEventsController;
+@property (nonatomic) BOOL accessGranted;
+@property (nonatomic) NSArray *ABcontactsArray;
+@property ABRecordID groupId;
+
 
 + (VariableStore *)sharedInstance;
 - (NSDate*) startDate;
 - (NSString*) currentDate;
 - (NSDate*) currentDateActual;
+- (NSManagedObjectContext*) context;
+- (NSFetchedResultsController*) fetchedEventsController;
+- (ABRecordID)groupId;
+- (BOOL) accessGranted;
+- (NSArray*) ABcontactsArray;
+- (void) displayContacts;
 @end

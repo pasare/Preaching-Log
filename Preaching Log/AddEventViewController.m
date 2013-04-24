@@ -27,11 +27,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Initalize the table
+    _eventsTable.backgroundColor = [UIColor clearColor];
+    [_eventsTable setBackgroundView:nil];
+    
+    //Notification for when table needs to be updated
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dataSaved:)
+                                                 name:@"DataSaved" object:nil];
+    
     if ([[VariableStore sharedInstance] currentDate] != nil)
         self.navigationItem.title = [[VariableStore sharedInstance] currentDate];
     else
         self.navigationItem.title = @"Add Event";
 	_eventsArray = [[NSMutableArray alloc] init];
+    [_eventsArray addObject:@"None"];
     [_eventsArray addObject:@"1 Door to Door Preaching"];
     [_eventsArray addObject:@"2 Street Preaching"];
     [_eventsArray addObject:@"3 Acquaintance Preaching"];
@@ -46,27 +57,23 @@
     [_eventsArray addObject:@"12 Head Office Work"];
     [_eventsArray addObject:@"99 Other(Specify)"];
     
-    //Stylize
-    /*_morningLabel.layer.borderWidth = 3.0f;
-    _morningLabel.layer.borderColor = [[UIColor blackColor] CGColor];
-    _afternoonLabel.layer.borderWidth = 3.0f;
-    _afternoonLabel.layer.borderColor = [[UIColor blackColor] CGColor];
-    _eveningLabel.layer.borderWidth = 3.0f;
-    _eveningLabel.layer.borderColor = [[UIColor blackColor] CGColor]; */
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithTitle:@"Save Events" style:UIBarButtonItemStylePlain
-                                              target:self action:@selector(saveEvent)];
-    //Retrieve the events for the day
-    NSString *date = [[VariableStore sharedInstance] currentDate];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary *dataDictionary = [defaults objectForKey:@"dataDictionary"];
-    NSArray *eventsArray = [dataDictionary objectForKey:date];
-    if (eventsArray != nil) {
-        _morningLabel.text = [eventsArray objectAtIndex:0];
-        _afternoonLabel.text = [eventsArray objectAtIndex:1];
-        _eveningLabel.text = [eventsArray objectAtIndex:2];
-    }
+                                              target:self action:@selector(saveEventCheck)];
+    
+    //Contacts table set up
+    _contactsArray = [[NSArray alloc] init];
+    _contactsTable.backgroundColor = [UIColor clearColor];
+    [_contactsTable setBackgroundView:nil];
+    
+    //get contacts
+    [self getContacts];
+    
+    //get events
+    _dailyEventsDictionary = [[NSMutableDictionary alloc] initWithCapacity:3];
+    [self getEvents];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,64 +82,100 @@
     // Dispose of any resources that can be recreated.
 }
 
-//Event Picker methods
-
--(IBAction)changeMorning:(id)sender
-{
-    _currentLabel = _morningLabel;
-    _eventPicker.hidden = NO;
-}
-
-
--(IBAction)changeAfternoon:(id)sender
-{
-    _currentLabel = _afternoonLabel;
-    _eventPicker.hidden = NO;
-}
-
--(IBAction)changeEvening:(id)sender
-{
-    _currentLabel = _eveningLabel;
-    _eventPicker.hidden = NO;
-}
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-    
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-    
-    return [_eventsArray count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [_eventsArray objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSString *selectedEvent = [_eventsArray objectAtIndex:row];
-    _currentLabel.text = selectedEvent;
-    _eventPicker.hidden = YES;
-}
-
--(void) saveEvent {
-    //retrieve the data
-    NSString *date = [[VariableStore sharedInstance] currentDate];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary *dataDictionary = [[defaults objectForKey:@"dataDictionary"] mutableCopy];
-    if (date == nil) {
-        date = [NSDateFormatter localizedStringFromDate:[[VariableStore sharedInstance] startDate]
-                                dateStyle:NSDateFormatterShortStyle
-                                timeStyle:NSDateFormatterNoStyle];
+-(void) dataSaved:(NSNotification *)notification{
+    if ([[VariableStore sharedInstance] accessGranted]){
+        [self getContacts];
+        [[VariableStore sharedInstance]displayContacts];
+        [_contactsTable reloadData];
     }
-    //Save the event data
-    //NSLog(@"The date being saved: %@",date);
-    [dataDictionary setObject:[NSArray arrayWithObjects:_morningLabel.text,_afternoonLabel.text,_eveningLabel.text,nil] forKey:date];
+}
+
+//Event Picker methods
+-(void) displayPicker:(UIButton *)sender {
+[ActionSheetStringPicker showPickerWithTitle:@"Select Activity" rows:_eventsArray initialSelection:0 target:self successAction:@selector(eventWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:sender];
+}
+
+- (void)eventWasSelected:(NSNumber *)selectedIndex element:(id)element {
+    _currentLabel.text = [_eventsArray objectAtIndex:[selectedIndex intValue]];
+}
+
+- (void)actionPickerCancelled:(id)sender {
+    //do nothing for now
+}
+
+-(void)changeMorning:(id)sender
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell *currentCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+    _currentLabel = currentCell.detailTextLabel;
+    [self displayPicker:sender];
+}
+
+
+-(void)changeAfternoon:(id)sender
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    UITableViewCell *currentCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+    _currentLabel = currentCell.detailTextLabel;
+    [self displayPicker:sender];
+}
+
+-(void)changeEvening:(id)sender
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    UITableViewCell *currentCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+    _currentLabel = currentCell.detailTextLabel;
+    [self displayPicker:sender];
+}
+
+-(void) saveEventCheck {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell *morningCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+    indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    UITableViewCell *afternoonCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+    indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    UITableViewCell *eveningCell = [_eventsTable cellForRowAtIndexPath:indexPath];
     
+    if ([morningCell.detailTextLabel.text isEqualToString:@"None"]&&[afternoonCell.detailTextLabel.text isEqualToString:@"None"]&&[eveningCell.detailTextLabel.text isEqualToString:@"None"] ){
+        [[TKAlertCenter defaultCenter] postAlertWithMessage:@"There are no events to save"];
+        [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(backToCalendar) userInfo:nil repeats:NO];
+    }
+    else
+        [self saveEvent];
+}
+-(void) saveEvent {
+    NSDate *date = [[VariableStore sharedInstance] currentDateActual];
+    if (date == nil) {
+        date = [[VariableStore sharedInstance] startDate];
+        
+    }
+    //Check if there are already entries for this date
+    NSError *error;
+    NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Event"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(date == %@)", date];
+    [request setPredicate:predicate];
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (error != nil) {
+        //Deal with failure
+    }
+    else {
+        if (results.count > 0) {
+            for (Event * event in results){
+                [context deleteObject:event];
+            }
+        }
+    }
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell *morningCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+    indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    UITableViewCell *afternoonCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+    indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    UITableViewCell *eveningCell = [_eventsTable cellForRowAtIndexPath:indexPath];
     
-    //save everything
-    [defaults setObject:dataDictionary forKey:@"dataDictionary"];
+    [self addEvent:date withTimeOfDay:@"1" withTitle:morningCell.detailTextLabel.text];
+    [self addEvent:date withTimeOfDay:@"2" withTitle:afternoonCell.detailTextLabel.text];
+    [self addEvent:date withTimeOfDay:@"3" withTitle:eveningCell.detailTextLabel.text];
     
     //Go back to calendar
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DataSaved" object:nil];
@@ -144,6 +187,278 @@
 
 -(void) backToCalendar{
    [self.navigationController popViewControllerAnimated:YES]; 
+}
+
+-(void) addEvent:(NSDate *)saveDate withTimeOfDay:(NSString *) timeOfDay withTitle:(NSString*)eventTitle {
+    NSError *error;
+    
+    NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+    //Create the new events and save them
+    Event *event = (Event *)[NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:[[VariableStore sharedInstance] context]];
+    [event setDate:saveDate];
+    [event setTitle:eventTitle];
+    [event setTimeofday:timeOfDay];
+    
+    //Save changes
+    if (![context save:&error]) {
+        // Handle the error.
+    }
+    event = nil;
+}
+
+//Table delegate methods
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (tableView == _eventsTable)
+        return 3;
+    else {
+        if ([_contactsArray count] > 0 )
+            return [_contactsArray count];
+        else
+            return 1;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (table == _eventsTable) {
+        return [self populateEventSelections:table cellForRowAtIndexPath:indexPath];
+        }
+    else
+        return [self populateContacts:table cellForRowAtIndexPath:indexPath];
+        
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 1;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == _contactsTable && [_contactsArray count] >0) {
+        Contact *currentContact = [_contactsArray objectAtIndex:indexPath.row];
+        NSString *contactName = currentContact.name;
+        [self loadContact:contactName];
+    }
+    
+}
+
+-(UITableViewCell*)populateEventSelections:(UITableView*) table cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [table dequeueReusableCellWithIdentifier:@"eventCell"];
+    if( cell == nil)
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"eventCell"];
+    UIImage *image = [UIImage imageNamed:@"blue_button.png"];
+    if (indexPath.row == 0) {
+        //Create the button
+        _changeMorning = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_changeMorning setTitle:@"Change" forState:UIControlStateNormal];
+        [_changeMorning setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_changeMorning setBackgroundImage:image forState:UIControlStateNormal];
+        _changeMorning.frame = CGRectMake(80.0, 210.0, 70.0, 30.0);
+        [_changeMorning addTarget:self action:@selector(changeMorning:)forControlEvents:UIControlEventTouchDown];
+        
+        cell.textLabel.text = @"Morning:";
+        cell.accessoryView = _changeMorning;
+        if ([_dailyEventsDictionary objectForKey:@"1"])
+            cell.detailTextLabel.text = [_dailyEventsDictionary objectForKey:@"1"];
+        else
+            cell.detailTextLabel.text = @"None";
+    }
+    if (indexPath.row == 1) {
+        //Create the button
+        _changeAfternoon = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_changeAfternoon setTitle:@"Change" forState:UIControlStateNormal];
+        [_changeAfternoon setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_changeAfternoon setBackgroundImage:image forState:UIControlStateNormal];
+        _changeAfternoon.frame = CGRectMake(80.0, 210.0, 70.0, 30.0);
+        [_changeAfternoon addTarget:self action:@selector(changeAfternoon:)forControlEvents:UIControlEventTouchDown];
+        
+        cell.textLabel.text = @"Afternoon:";
+        cell.accessoryView = _changeAfternoon;
+        if ([_dailyEventsDictionary objectForKey:@"2"])
+            cell.detailTextLabel.text = [_dailyEventsDictionary objectForKey:@"2"];
+        else
+            cell.detailTextLabel.text = @"None";
+    }
+    if (indexPath.row == 2) {
+        //Create the button
+        _changeEvening = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_changeEvening setTitle:@"Change" forState:UIControlStateNormal];
+        [_changeEvening setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_changeEvening setBackgroundImage:image forState:UIControlStateNormal];
+        _changeEvening.frame = CGRectMake(80.0, 210.0, 70.0, 30.0);
+        [_changeEvening addTarget:self action:@selector(changeEvening:)forControlEvents:UIControlEventTouchDown];
+        
+        cell.textLabel.text = @"Evening:";
+        cell.accessoryView = _changeEvening;
+        if ([_dailyEventsDictionary objectForKey:@"3"])
+            cell.detailTextLabel.text = [_dailyEventsDictionary objectForKey:@"3"];
+        else
+            cell.detailTextLabel.text = @"None";
+    }
+    
+    /*
+     //cell.backgroundColor = [UIColor colorWithRed:210/255.0f green:226/255.0f blue:245/255.0f alpha:1]; */
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+-(UITableViewCell*)populateContacts:(UITableView*) table cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [table dequeueReusableCellWithIdentifier:@"contactCell"];
+    if( cell == nil)
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contactCell"];
+    
+    if([_contactsArray count] <= 0) {
+        cell.textLabel.text = @"No Contacts For This Day";
+    }
+    else {
+        Contact *currentContact = [_contactsArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = currentContact.name;
+    }
+    return cell;
+}
+
+//Contact picker methods
+-(void)loadContact:(NSString*)contactName {
+    
+	ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL,NULL);;
+	NSArray *people = (__bridge NSArray *)ABAddressBookCopyPeopleWithName(addressBook, (__bridge CFStringRef)(contactName));
+	if ((people != nil) && [people count])
+	{
+		ABRecordRef person = (__bridge ABRecordRef)[people objectAtIndex:0];
+		ABPersonViewController *picker = [[ABPersonViewController alloc] init];
+		picker.personViewDelegate = self;
+		picker.displayedPerson = person;
+		picker.allowsEditing = YES;
+		[self.navigationController pushViewController:picker animated:YES];
+	}
+	else
+	{
+		// Show an alert if "Appleseed" is not in Contacts
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+														message:@"Could not find the contact in your addressbook"
+													   delegate:nil
+											  cancelButtonTitle:@"Cancel"
+											  otherButtonTitles:nil];
+		[alert show];
+	}
+	CFRelease(addressBook);
+}
+
+-(IBAction)addContact:(id)sender {
+    ABNewPersonViewController *view = [[ABNewPersonViewController alloc] init];
+    view.newPersonViewDelegate = self;
+    UINavigationController *newNavigationController = [[UINavigationController alloc]
+                                                       initWithRootViewController:view];
+    [self presentViewController:newNavigationController animated:YES completion:^(void){}];
+}
+
+- (void)newPersonViewController:(ABNewPersonViewController *)newPersonViewController didCompleteWithNewPerson:(ABRecordRef)person {
+    CFErrorRef error = NULL;
+    if (person) {
+        ABRecordID groupId =  [[VariableStore sharedInstance] groupId];
+        ABRecordRef zionAmericaGroup = ABAddressBookGetGroupWithRecordID(newPersonViewController.addressBook, groupId);
+        ABGroupAddMember(zionAmericaGroup, person, &error);
+        ABAddressBookSave(newPersonViewController.addressBook, &error);
+        
+        [self saveContactRecord:person];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"DataSaved" object:nil];
+    }
+    [self dismissViewControllerAnimated:YES completion:^(void){}];
+}
+
+-(void)saveContactRecord:(ABRecordRef)person {
+    //Get the persons name
+    
+    NSString *firstName =(__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    NSString *lastName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    NSMutableString *personName = [[NSMutableString alloc] initWithFormat:@"%@ %@",firstName,lastName];
+    
+    NSDate *saveDate = [[VariableStore sharedInstance] currentDateActual];
+    if (saveDate == nil) {
+        saveDate = [[VariableStore sharedInstance] startDate];
+        
+    }
+    NSError *error;
+    NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+    //Create the new contact and save it
+    Contact *contact = (Contact *)[NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:[[VariableStore sharedInstance] context]];
+    [contact setDate:saveDate];
+    [contact setName:personName];
+    
+    //Save changes
+    if (![context save:&error]) {
+        // Handle the error.
+    }
+}
+
+-(void)getContacts{
+    NSDate *date = [[VariableStore sharedInstance] currentDateActual];
+    if (date == nil) {
+        date = [[VariableStore sharedInstance] startDate];
+        
+    }
+    
+    NSError *error;
+    NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Contact"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(date == %@)", date];
+    [request setPredicate:predicate];
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (error != nil) {
+        //Deal with failure
+    }
+    else {
+        _contactsArray = results;
+    }
+}
+
+-(void)getEvents {
+    NSDate *date = [[VariableStore sharedInstance] currentDateActual];
+    if (date == nil) {
+        date = [[VariableStore sharedInstance] startDate];
+        
+    }
+    
+    NSError *error;
+    NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Event"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(date == %@)", date];
+    [request setPredicate:predicate];
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (error != nil) {
+        //Deal with failure
+    }
+    else {
+        //_dailyEventsDictionary = results;
+        for (Event *event in results) {
+            if ([event.timeofday isEqualToString:@"1"]){
+                [_dailyEventsDictionary setValue:event.title forKey:@"1"];
+                
+                /*NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                UITableViewCell *currentCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+                currentCell.detailTextLabel.text = event.title; */
+            }
+            if ([event.timeofday isEqualToString:@"2"]) {
+                [_dailyEventsDictionary setValue:event.title forKey:@"2"];
+                
+                /*NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                UITableViewCell *currentCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+                currentCell.detailTextLabel.text = event.title; */
+            }
+            if ([event.timeofday isEqualToString:@"3"]) {
+                [_dailyEventsDictionary setValue:event.title forKey:@"3"];
+                
+                /*NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+                UITableViewCell *currentCell = [_eventsTable cellForRowAtIndexPath:indexPath];
+                currentCell.detailTextLabel.text = event.title; */
+            }
+        }
+    }
+}
+
+
+- (BOOL)personViewController:(ABPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifierForValue
+{
+	return YES;
 }
 
 @end
