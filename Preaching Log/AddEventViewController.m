@@ -28,20 +28,8 @@
 {
     [super viewDidLoad];
     
-    //Initalize the table
-    _eventsTable.backgroundColor = [UIColor clearColor];
-    [_eventsTable setBackgroundView:nil];
-    
-    //Notification for when table needs to be updated
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(dataSaved:)
-                                                 name:@"DataSaved" object:nil];
-    
-    if ([[VariableStore sharedInstance] currentDate] != nil)
-        self.navigationItem.title = [[VariableStore sharedInstance] currentDate];
-    else
-        self.navigationItem.title = @"Add Event";
-	_eventsArray = [[NSMutableArray alloc] init];
+    //Initalize the view
+    _eventsArray = [[NSMutableArray alloc] init];
     [_eventsArray addObject:@"None"];
     [_eventsArray addObject:@"1 Door to Door Preaching"];
     [_eventsArray addObject:@"2 Street Preaching"];
@@ -57,10 +45,39 @@
     [_eventsArray addObject:@"12 Head Office Work"];
     [_eventsArray addObject:@"99 Other(Specify)"];
     
+    [self refreshView];
+    
+    //Notification for when table needs to be updated
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dataSaved:)
+                                                 name:@"DataSaved" object:nil];
+    //Notification for when the view is changed via swipe
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dataReloaded:)
+                                                 name:@"DataReloaded" object:nil];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithTitle:@"Save Events" style:UIBarButtonItemStylePlain
                                               target:self action:@selector(saveEventCheck)];
     
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)refreshView {
+   
+    _eventsTable.backgroundColor = [UIColor clearColor];
+    [_eventsTable setBackgroundView:nil];
+    
+    if ([[VariableStore sharedInstance] currentDate] != nil)
+        self.navigationItem.title = [[VariableStore sharedInstance] currentDate];
+    else
+        self.navigationItem.title = @"Add Event";
+	
     //Contacts table set up
     _contactsArray = [[NSArray alloc] init];
     _contactsTable.backgroundColor = [UIColor clearColor];
@@ -72,14 +89,6 @@
     //get events
     _dailyEventsDictionary = [[NSMutableDictionary alloc] initWithCapacity:3];
     [self getEvents];
-    
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void) dataSaved:(NSNotification *)notification{
@@ -88,6 +97,70 @@
         [[VariableStore sharedInstance]displayContacts];
         [_contactsTable reloadData];
     }
+}
+
+-(void) dataReloaded:(NSNotification *) notification {
+    if ([[VariableStore sharedInstance] accessGranted]){
+        [self getContacts];
+        [[VariableStore sharedInstance]displayContacts];
+        [_contactsTable reloadData];
+        [_eventsTable reloadData];
+    }
+}
+
+- (IBAction)moveOneDateLeft:(id)sender {
+    //increase the date by one and reload the view
+    NSDate *date = [[VariableStore sharedInstance] currentDateActual];
+    if (date == nil) {
+        date = [[VariableStore sharedInstance] startDate];
+        
+    }
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    dayComponent.day = -1;
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *dateToBeIncremented = [theCalendar dateByAddingComponents:dayComponent toDate:date options:0];
+    [[VariableStore sharedInstance] setCurrentDateActual:dateToBeIncremented];
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:dateToBeIncremented
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    [[VariableStore sharedInstance]setCurrentDate:dateString];
+    
+    [self refreshView];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DataReloaded" object:nil];
+    
+    //show view animation
+    
+    [UIView animateWithDuration:1.0 delay: 0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        self.view.alpha = 0.8;
+        self.view.alpha = 1.0;
+    } completion:^(BOOL finished){}]; 
+    
+}
+
+- (IBAction)moveOneDateRight:(id)sender {
+    NSDate *date = [[VariableStore sharedInstance] currentDateActual];
+    if (date == nil) {
+        date = [[VariableStore sharedInstance] startDate];
+        
+    }
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    dayComponent.day = 1;
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *dateToBeIncremented = [theCalendar dateByAddingComponents:dayComponent toDate:date options:0];
+    [[VariableStore sharedInstance] setCurrentDateActual:dateToBeIncremented];
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:dateToBeIncremented
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    [[VariableStore sharedInstance]setCurrentDate:dateString];
+    
+    [self refreshView];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DataReloaded" object:nil];
+    
+    //show view animation
+    [UIView animateWithDuration:1.0 delay: 0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        self.view.alpha = 0.8;
+        self.view.alpha = 1.0;
+    } completion:^(BOOL finished){}];
 }
 
 //Event Picker methods
@@ -235,8 +308,11 @@
     if (tableView == _contactsTable && [_contactsArray count] >0) {
         Contact *currentContact = [_contactsArray objectAtIndex:indexPath.row];
         NSString *contactName = currentContact.name;
+        
         [self loadContact:contactName];
+        
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
@@ -259,7 +335,7 @@
         if ([_dailyEventsDictionary objectForKey:@"1"])
             cell.detailTextLabel.text = [_dailyEventsDictionary objectForKey:@"1"];
         else
-            cell.detailTextLabel.text = @"None";
+            cell.detailTextLabel.text = @"None\n\n\n";
     }
     if (indexPath.row == 1) {
         //Create the button
@@ -275,7 +351,7 @@
         if ([_dailyEventsDictionary objectForKey:@"2"])
             cell.detailTextLabel.text = [_dailyEventsDictionary objectForKey:@"2"];
         else
-            cell.detailTextLabel.text = @"None";
+            cell.detailTextLabel.text = @"None\n\n\n";
     }
     if (indexPath.row == 2) {
         //Create the button
@@ -291,7 +367,7 @@
         if ([_dailyEventsDictionary objectForKey:@"3"])
             cell.detailTextLabel.text = [_dailyEventsDictionary objectForKey:@"3"];
         else
-            cell.detailTextLabel.text = @"None";
+            cell.detailTextLabel.text = @"None\n\n\n";
     }
     
     /*

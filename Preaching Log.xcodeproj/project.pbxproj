@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99013A1B17286924006453BC /* toggle_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 99013A1A17286924006453BC /* toggle_log.png */; };
 		990C312216B9F9D70008E90A /* CalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C312116B9F9D70008E90A /* CalendarMonthViewController.m */; };
 		990C314516B9FF770008E90A /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 990C314016B9FF1D0008E90A /* libTapkuLibrary.a */; };
 		990C316516BA14160008E90A /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C316416BA14160008E90A /* AddEventViewController.m */; };
@@ -89,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		99013A1A17286924006453BC /* toggle_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_log.png; sourceTree = "<group>"; };
 		990C312016B9F9D70008E90A /* CalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarMonthViewController.h; sourceTree = "<group>"; };
 		990C312116B9F9D70008E90A /* CalendarMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarMonthViewController.m; sourceTree = "<group>"; };
 		990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 		99959A7316B756DC00E69A2F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				99013A1A17286924006453BC /* toggle_log.png */,
 				99DC0A991726280C00770C82 /* blue_button.png */,
 				99D87DB91726255900A1785E /* sub_blue_remove.png */,
 				990C31B416C6860B0008E90A /* cr32_action_contents2 (1).png */,
@@ -423,6 +426,7 @@
 				990C31B516C6860B0008E90A /* cr32_action_contents2 (1).png in Resources */,
 				99D87DBA1726255900A1785E /* sub_blue_remove.png in Resources */,
 				99DC0A9A1726280C00770C82 /* blue_button.png in Resources */,
+				99013A1B17286924006453BC /* toggle_log.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

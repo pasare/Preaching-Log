@@ -129,6 +129,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="LNU-nf-uqx" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" type="default" id="4e4-Ky-F8q"/>
                             <constraint firstItem="bXk-hR-dMV" firstAttribute="trailing" secondItem="tz4-qO-fI2" secondAttribute="trailing" type="default" id="Y2G-WE-YSN"/>
@@ -143,6 +144,10 @@
                             <constraint firstItem="bXk-hR-dMV" firstAttribute="bottom" secondItem="tz4-qO-fI2" secondAttribute="bottom" type="default" id="q4f-Ev-bNx"/>
                             <constraint firstItem="zxa-TL-Iww" firstAttribute="leading" secondItem="tz4-qO-fI2" secondAttribute="leading" type="default" id="xzh-5T-ycw"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="sib-Ys-gjw" appends="YES" id="9M5-K7-erU"/>
+                            <outletCollection property="gestureRecognizers" destination="J8N-EH-hSC" appends="YES" id="iob-ui-D2H"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Event" id="cbP-Ey-iB6"/>
@@ -155,6 +160,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l42-Ne-xmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="sib-Ys-gjw">
+                    <connections>
+                        <action selector="moveOneDateRight:" destination="bfh-My-fW8" id="wsX-NK-mGw"/>
+                        <outlet property="delegate" destination="bfh-My-fW8" id="a7Q-b3-r6S"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="J8N-EH-hSC">
+                    <connections>
+                        <action selector="moveOneDateLeft:" destination="bfh-My-fW8" id="XGD-c7-3vB"/>
+                        <outlet property="delegate" destination="bfh-My-fW8" id="hrs-8f-Wmj"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="459" y="747"/>
         </scene>

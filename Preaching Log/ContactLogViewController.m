@@ -29,9 +29,13 @@ bool _searching = NO;
     [super viewDidLoad];
     _listOfItems = [[NSMutableArray alloc] init];
     _contactsArray  = [[VariableStore sharedInstance] ABcontactsArray];
+    _oldContactsArray = [[VariableStore sharedInstance] ABcontactsArray];;
     UISearchBar *tempSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 0)];
     _searchBar = tempSearchBar;
     _searchBar.delegate = self;
+    [_searchBar setShowsScopeBar:YES];
+    NSArray *scopeItems = [[NSArray alloc] initWithObjects:@"Name",@"Date", nil];
+    [_searchBar setScopeButtonTitles:scopeItems];
     [_searchBar sizeToFit];
     _searchBar.tintColor = [UIColor lightGrayColor];
     self.tableView.tableHeaderView = _searchBar;
@@ -41,6 +45,9 @@ bool _searching = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dataSaved:)
                                                  name:@"DataSaved" object:nil];
+    
+    //Get contacts by date
+    [self getDatedContacts];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -158,6 +165,7 @@ bool _searching = NO;
     else {
         personViewController.displayedPerson = (__bridge ABRecordRef)([_contactsArray objectAtIndex:indexPath.row]);
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.navigationController pushViewController:personViewController animated:YES];
 }
 
@@ -205,6 +213,21 @@ bool _searching = NO;
 }
 
 //search methods
+
+-(void) searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    if (selectedScope == 0) {
+        _contactsArray = _oldContactsArray;
+    }
+    if (selectedScope == 1) {
+        _contactsArray = _datedContactsArray;
+    }
+    [self.tableView reloadData];
+}
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    return YES;
+}
+
+
 - (void)searchBar:(UISearchBar *)theSearchBar textDidChange:(NSString *)searchText {
     theSearchBar.showsCancelButton = YES;
     //Remove all objects first.
@@ -249,6 +272,39 @@ bool _searching = NO;
             [_listOfItems addObject:[_contactsArray objectAtIndex:i]];
     }
     searchArray = nil;
+}
+
+-(void) getDatedContacts {
+    NSDate *date = [[VariableStore sharedInstance] currentDateActual];
+    if (date == nil) {
+        date = [[VariableStore sharedInstance] startDate];
+        
+    }
+    
+    NSError *error;
+    NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Contact"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (error != nil) {
+        //Deal with failure
+    }
+    else {
+        //Get dated names in proper order
+        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+        for (Contact *contact in results){
+            
+            //[tempArray addObject:contact.name];
+        }
+        //Add undated names to the end
+        for (NSString *name in _contactsArray){
+            if (![tempArray containsObject:name])
+                [tempArray addObject:name];
+        }
+        _datedContactsArray = tempArray;
+    }
 }
 
 

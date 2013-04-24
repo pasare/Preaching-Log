@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "VariableStore.h"
+#import "Contact.h"
 
 @interface ContactLogViewController : UITableViewController<UISearchBarDelegate,ABPersonViewControllerDelegate,ABNewPersonViewControllerDelegate>
 @property (nonatomic, retain)  UISearchBar *searchBar;
 @property (nonatomic, retain) NSMutableArray *listOfItems;
 @property (nonatomic) NSArray *contactsArray;
+@property (nonatomic) NSArray *oldContactsArray;
+@property (nonatomic) NSArray *datedContactsArray;
 @end

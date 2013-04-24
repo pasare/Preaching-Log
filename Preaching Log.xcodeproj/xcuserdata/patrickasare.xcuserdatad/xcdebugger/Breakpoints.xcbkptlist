@@ -162,11 +162,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388476365.454708"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135"
+         startingLineNumber = "208"
+         endingLineNumber = "208"
          landmarkName = "-saveEventCheck"
          landmarkType = "5">
       </FileBreakpoint>
@@ -175,11 +175,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388476365.454708"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135"
+         startingLineNumber = "208"
+         endingLineNumber = "208"
          landmarkName = "-saveEventCheck"
          landmarkType = "5">
       </FileBreakpoint>
@@ -383,11 +383,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/ContactLogViewController.m"
-         timestampString = "388462695.117992"
+         timestampString = "388527882.301666"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "152"
-         endingLineNumber = "152"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -396,11 +396,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388476365.454708"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "174"
-         endingLineNumber = "174"
+         startingLineNumber = "247"
+         endingLineNumber = "247"
          landmarkName = "-saveEvent"
          landmarkType = "5">
       </FileBreakpoint>
@@ -409,11 +409,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388476365.454708"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "209"
-         endingLineNumber = "209"
+         startingLineNumber = "282"
+         endingLineNumber = "282"
          landmarkName = "@implementation AddEventViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -422,11 +422,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388476365.454708"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
+         startingLineNumber = "283"
+         endingLineNumber = "283"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -435,11 +435,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388475107.595261"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "308"
-         endingLineNumber = "308"
+         startingLineNumber = "384"
+         endingLineNumber = "384"
          landmarkName = "-populateContacts:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -448,11 +448,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388475107.595261"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "368"
-         endingLineNumber = "368"
+         startingLineNumber = "444"
+         endingLineNumber = "444"
          landmarkName = "-saveContactRecord:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -461,11 +461,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388475107.595261"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "355"
-         endingLineNumber = "355"
+         startingLineNumber = "431"
+         endingLineNumber = "431"
          landmarkName = "-newPersonViewController:didCompleteWithNewPerson:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -474,11 +474,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388475107.595261"
+         timestampString = "388523980.37427"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "394"
-         endingLineNumber = "394"
+         startingLineNumber = "471"
+         endingLineNumber = "471"
          landmarkName = "-getContacts"
          landmarkType = "5">
       </FileBreakpoint>
@@ -526,11 +526,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388475107.595261"
+         timestampString = "388523980.37427"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "415"
-         endingLineNumber = "415"
+         startingLineNumber = "492"
+         endingLineNumber = "492"
          landmarkName = "-getEvents"
          landmarkType = "5">
       </FileBreakpoint>
@@ -539,11 +539,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388476365.454708"
+         timestampString = "388523980.37427"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "433"
-         endingLineNumber = "433"
+         startingLineNumber = "510"
+         endingLineNumber = "510"
          landmarkName = "-getEvents"
          landmarkType = "5">
       </FileBreakpoint>
@@ -552,11 +552,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388476365.454708"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "244"
-         endingLineNumber = "244"
+         startingLineNumber = "320"
+         endingLineNumber = "320"
          landmarkName = "-populateEventSelections:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -565,12 +565,116 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/AddEventViewController.m"
-         timestampString = "388476365.454708"
+         timestampString = "388507765.370147"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "226"
-         endingLineNumber = "226"
+         startingLineNumber = "299"
+         endingLineNumber = "299"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/AddEventViewController.m"
+         timestampString = "388507765.370147"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "113"
+         endingLineNumber = "113"
+         landmarkName = "-moveOneDateLeft:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/AddEventViewController.m"
+         timestampString = "388507765.370147"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "142"
+         endingLineNumber = "142"
+         landmarkName = "-moveOneDateRight:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/AddEventViewController.m"
+         timestampString = "388503658.694615"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "29"
+         endingLineNumber = "29"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/AddEventViewController.m"
+         timestampString = "388507765.370147"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
+         landmarkName = "-refreshView"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/ContactLogViewController.m"
+         timestampString = "388527882.301666"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "300"
+         endingLineNumber = "300"
+         landmarkName = "-getDatedContacts"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/ContactLogViewController.m"
+         timestampString = "388527882.301666"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "217"
+         endingLineNumber = "217"
+         landmarkName = "-searchBar:selectedScopeButtonIndexDidChange:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/ContactLogViewController.m"
+         timestampString = "388527882.301666"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "284"
+         endingLineNumber = "284"
+         landmarkName = "-getDatedContacts"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/ContactLogViewController.m"
+         timestampString = "388527882.301666"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "285"
+         endingLineNumber = "285"
+         landmarkName = "-getDatedContacts"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
