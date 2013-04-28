@@ -130,11 +130,12 @@
     
     //show view animation
     
-    [UIView animateWithDuration:1.0 delay: 0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
-        self.view.alpha = 0.8;
-        self.view.alpha = 1.0;
-    } completion:^(BOOL finished){}]; 
-    
+    [self.view setNeedsDisplay];
+    [UIView transitionWithView:self.view duration:1
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        [self.view.layer displayIfNeeded];
+                    } completion:nil];
 }
 
 - (IBAction)moveOneDateRight:(id)sender {
@@ -157,10 +158,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DataReloaded" object:nil];
     
     //show view animation
-    [UIView animateWithDuration:1.0 delay: 0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
-        self.view.alpha = 0.8;
-        self.view.alpha = 1.0;
-    } completion:^(BOOL finished){}];
+    [self.view setNeedsDisplay];
+    [UIView transitionWithView:self.view duration:1
+                       options:UIViewAnimationOptionTransitionFlipFromRight
+                    animations:^{
+                        [self.view.layer displayIfNeeded];
+                    } completion:nil];
 }
 
 //Event Picker methods
@@ -403,11 +406,12 @@
 		picker.personViewDelegate = self;
 		picker.displayedPerson = person;
 		picker.allowsEditing = YES;
+        picker.navigationItem.title=@"Contact Info";
 		[self.navigationController pushViewController:picker animated:YES];
 	}
 	else
 	{
-		// Show an alert if "Appleseed" is not in Contacts
+		// Show an alert if contact is not in addressbook
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
 														message:@"Could not find the contact in your addressbook"
 													   delegate:nil

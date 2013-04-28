@@ -23,6 +23,11 @@
 		990C31B116C61D5D0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B016C61D5D0008E90A /* book.png */; };
 		990C31B316C61D6B0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B216C61D6B0008E90A /* book.png */; };
 		990C31B516C6860B0008E90A /* cr32_action_contents2 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B416C6860B0008E90A /* cr32_action_contents2 (1).png */; };
+		991B3782172CC2C500E83F52 /* cr32_action_contents2 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 991B3781172CC2C500E83F52 /* cr32_action_contents2 (2).png */; };
+		991B3787172CC48700E83F52 /* preaching_log_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B3786172CC48700E83F52 /* preaching_log_57.png */; };
+		991B3789172CC4A500E83F52 /* preaching_log_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B3788172CC4A500E83F52 /* preaching_log_57.png */; };
+		991B378B172CC54400E83F52 /* preaching_log_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B378A172CC54400E83F52 /* preaching_log_114.png */; };
+		991B378D172CC56200E83F52 /* preaching_log_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B378C172CC56200E83F52 /* preaching_log_114.png */; };
 		994247D41722EC0200B60305 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994247D31722EC0200B60305 /* AddressBookUI.framework */; };
 		994247D61722F22800B60305 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994247D51722F22800B60305 /* AddressBook.framework */; };
 		994247DA1722F5C000B60305 /* ContactLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994247D91722F5C000B60305 /* ContactLogViewController.m */; };
@@ -111,6 +116,11 @@
 		990C31B016C61D5D0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		990C31B216C61D6B0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		990C31B416C6860B0008E90A /* cr32_action_contents2 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cr32_action_contents2 (1).png"; path = "../../../Downloads/cr32_action_contents2 (1).png"; sourceTree = "<group>"; };
+		991B3781172CC2C500E83F52 /* cr32_action_contents2 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cr32_action_contents2 (2).png"; sourceTree = "<group>"; };
+		991B3786172CC48700E83F52 /* preaching_log_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preaching_log_57.png; sourceTree = "<group>"; };
+		991B3788172CC4A500E83F52 /* preaching_log_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preaching_log_57.png; sourceTree = "<group>"; };
+		991B378A172CC54400E83F52 /* preaching_log_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preaching_log_114.png; sourceTree = "<group>"; };
+		991B378C172CC56200E83F52 /* preaching_log_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preaching_log_114.png; sourceTree = "<group>"; };
 		994247D31722EC0200B60305 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		994247D51722F22800B60305 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		994247D81722F5C000B60305 /* ContactLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactLogViewController.h; sourceTree = "<group>"; };
@@ -197,8 +207,8 @@
 		99959A5D16B756DC00E69A2F = {
 			isa = PBXGroup;
 			children = (
-				994247D51722F22800B60305 /* AddressBook.framework */,
-				994247D31722EC0200B60305 /* AddressBookUI.framework */,
+				991B378C172CC56200E83F52 /* preaching_log_114.png */,
+				991B3788172CC4A500E83F52 /* preaching_log_57.png */,
 				990C31B216C61D6B0008E90A /* book.png */,
 				990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */,
 				99959A7216B756DC00E69A2F /* Preaching Log */,
@@ -220,6 +230,8 @@
 		99959A6B16B756DC00E69A2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				994247D31722EC0200B60305 /* AddressBookUI.framework */,
+				994247D51722F22800B60305 /* AddressBook.framework */,
 				99CC12DF1720F49E0012C01C /* CoreData.framework */,
 				99959AF316B75D5000E69A2F /* QuartzCore.framework */,
 				99959AF516B75D6300E69A2F /* MapKit.framework */,
@@ -269,6 +281,9 @@
 		99959A7316B756DC00E69A2F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				991B378A172CC54400E83F52 /* preaching_log_114.png */,
+				991B3786172CC48700E83F52 /* preaching_log_57.png */,
+				991B3781172CC2C500E83F52 /* cr32_action_contents2 (2).png */,
 				99013A1A17286924006453BC /* toggle_log.png */,
 				99DC0A991726280C00770C82 /* blue_button.png */,
 				99D87DB91726255900A1785E /* sub_blue_remove.png */,
@@ -427,6 +442,11 @@
 				99D87DBA1726255900A1785E /* sub_blue_remove.png in Resources */,
 				99DC0A9A1726280C00770C82 /* blue_button.png in Resources */,
 				99013A1B17286924006453BC /* toggle_log.png in Resources */,
+				991B3782172CC2C500E83F52 /* cr32_action_contents2 (2).png in Resources */,
+				991B3787172CC48700E83F52 /* preaching_log_57.png in Resources */,
+				991B3789172CC4A500E83F52 /* preaching_log_57.png in Resources */,
+				991B378B172CC54400E83F52 /* preaching_log_114.png in Resources */,
+				991B378D172CC56200E83F52 /* preaching_log_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,11 @@ bool _searching = NO;
     return self;
 }
 
+-(void)viewDidDisappear:(BOOL)animated {
+    _searching = NO;
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,6 +54,9 @@ bool _searching = NO;
     //Get contacts by date
     [self getDatedContacts];
     
+    //create the contacts array and dictionary
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -73,7 +81,12 @@ bool _searching = NO;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    if (_searching)
+        return 1;
+    else {
+        return 1;
+        //return [[_contactsDictionary allKeys] count];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -89,84 +102,61 @@ bool _searching = NO;
 {
     static NSString *cellIdentifier = @"contactCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    NSString *firstName;
-    NSString *lastName;
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     if (_searching){
-        firstName =(__bridge NSString *)ABRecordCopyValue((__bridge ABRecordRef)([_listOfItems objectAtIndex:indexPath.row]), kABPersonFirstNameProperty);
-        lastName = (__bridge NSString *)ABRecordCopyValue((__bridge ABRecordRef)([_listOfItems objectAtIndex:indexPath.row]), kABPersonLastNameProperty);
+        cell.textLabel.text = [_listOfItems objectAtIndex:indexPath.row];
     }
     else {
-        firstName =(__bridge NSString *)ABRecordCopyValue((__bridge ABRecordRef)([_contactsArray objectAtIndex:indexPath.row]), kABPersonFirstNameProperty);
-        lastName = (__bridge NSString *)ABRecordCopyValue((__bridge ABRecordRef)([_contactsArray objectAtIndex:indexPath.row]), kABPersonLastNameProperty);
+        cell.textLabel.text = [_contactsArray objectAtIndex:indexPath.row];
     }
     
-    NSMutableString *personName = [[NSMutableString alloc] initWithFormat:@"%@ %@",firstName,lastName];
-    cell.textLabel.text = personName;
     //cell.backgroundColor = [UIColor colorWithRed:210/255.0f green:226/255.0f blue:245/255.0f alpha:1];
     return cell;
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    NSMutableArray *sectionedArray = [[NSMutableArray alloc]init];
+    for(char c ='A' ; c <= 'Z' ;  c++)
+    {
+        [sectionedArray addObject:[NSString stringWithFormat:@"%c",c]];
+    }
+    return sectionedArray;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+    NSInteger count = 0;
+    for(NSString *character in _contactsArray)
+    {
+        if([character isEqualToString:title])
+        {
+            return count;
+        }
+        count ++;
+    }
+    return 0;
+} */
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ABPersonViewController *personViewController = [[ABPersonViewController alloc] init];
-    personViewController.personViewDelegate = self;
-    personViewController.allowsActions = YES;
-    personViewController.navigationItem.title=@"Contact Info";
-    
     if (_searching){
-        personViewController.displayedPerson = (__bridge ABRecordRef)([_listOfItems objectAtIndex:indexPath.row]);
+        [self loadContact:[_listOfItems objectAtIndex:indexPath.row]];
     }
     else {
-        personViewController.displayedPerson = (__bridge ABRecordRef)([_contactsArray objectAtIndex:indexPath.row]);
+        [self loadContact:[_contactsArray objectAtIndex:indexPath.row]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:personViewController animated:YES];
 }
 
 //Add contact functions
@@ -259,19 +249,43 @@ bool _searching = NO;
     NSString *searchText = _searchBar.text;
     NSMutableArray *searchArray = [[NSMutableArray alloc] init];
     [searchArray addObjectsFromArray:_contactsArray];
-    NSString *firstName;
-    NSString *lastName;
-    NSMutableString *personName;
+    NSString *personName;
     for (int i=0; i<[searchArray count]; i++) {
-        firstName =(__bridge NSString *)ABRecordCopyValue((__bridge ABRecordRef)([searchArray objectAtIndex:i]), kABPersonFirstNameProperty);
-        lastName = (__bridge NSString *)ABRecordCopyValue((__bridge ABRecordRef)([searchArray objectAtIndex:i]), kABPersonLastNameProperty);
-        personName = [[NSMutableString alloc] initWithFormat:@"%@ %@",firstName,lastName];
         
+        personName = [searchArray objectAtIndex:i];
         NSRange titleResultsRange = [personName rangeOfString:searchText options:NSCaseInsensitiveSearch];
         if (titleResultsRange.length > 0)
             [_listOfItems addObject:[_contactsArray objectAtIndex:i]];
     }
     searchArray = nil;
+}
+
+//Retrieving contacts
+-(void)loadContact:(NSString*)contactName {
+    
+	ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL,NULL);;
+	NSArray *people = (__bridge NSArray *)ABAddressBookCopyPeopleWithName(addressBook, (__bridge CFStringRef)(contactName));
+	if ((people != nil) && [people count])
+	{
+		ABRecordRef person = (__bridge ABRecordRef)[people objectAtIndex:0];
+		ABPersonViewController *picker = [[ABPersonViewController alloc] init];
+		picker.personViewDelegate = self;
+		picker.displayedPerson = person;
+		picker.allowsEditing = YES;
+        picker.navigationItem.title=@"Contact Info";
+		[self.navigationController pushViewController:picker animated:YES];
+	}
+	else
+	{
+		// Show an alert if contact is not in addressbook
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+														message:@"Could not find the contact in your addressbook"
+													   delegate:nil
+											  cancelButtonTitle:@"Cancel"
+											  otherButtonTitles:nil];
+		[alert show];
+	}
+	CFRelease(addressBook);
 }
 
 -(void) getDatedContacts {
@@ -280,13 +294,13 @@ bool _searching = NO;
         date = [[VariableStore sharedInstance] startDate];
         
     }
-    
     NSError *error;
     NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
     NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Contact"];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [request setSortDescriptors:sortDescriptors];
+    
     NSArray *results = [context executeFetchRequest:request error:&error];
     if (error != nil) {
         //Deal with failure
@@ -296,17 +310,42 @@ bool _searching = NO;
         NSMutableArray *tempArray = [[NSMutableArray alloc] init];
         for (Contact *contact in results){
             
-            //[tempArray addObject:contact.name];
+            [tempArray addObject:contact.name];
         }
         //Add undated names to the end
-        for (NSString *name in _contactsArray){
-            if (![tempArray containsObject:name])
-                [tempArray addObject:name];
+        NSString *personName;
+        for (int i=0; i<[_contactsArray count]; i++) {
+    
+            personName = [_contactsArray objectAtIndex:i];
+            if (![tempArray containsObject:personName]){
+                [tempArray addObject:personName];
+            }
         }
+        NSLog(@"%@",tempArray);
         _datedContactsArray = tempArray;
     }
 }
 
+//Return an order dictionary of contacts for the contact list
+/*-(void)getContacts {
+    NSArray *contacts = [[VariableStore sharedInstance] ABcontactsArray];
+    _contactsDictionary = [[NSMutableDictionary alloc]init];
+    NSString *firstCharacter;
+    NSMutableArray *group;
+    for (NSString *contact in contacts) {
+        firstCharacter = [[contact substringToIndex:1] uppercaseString];
+        
+        if ([_contactsDictionary valueForKey:firstCharacter] != nil){
+            group = [_contactsDictionary valueForKey:firstCharacter];
+            [group addObject:contact];
+            [_contactsDictionary setValue:group forKey:firstCharacter];
+        }
+        else {
+            NSArray *newGroup = [[NSArray alloc]initWithObjects:contact, nil];
+            [_contactsDictionary setValue:newGroup forKey:firstCharacter];
+        }
+    }
+} */
 
 
 @end
