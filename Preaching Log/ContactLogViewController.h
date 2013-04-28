@@ -13,6 +13,7 @@
 @interface ContactLogViewController : UITableViewController<UISearchBarDelegate,ABPersonViewControllerDelegate,ABNewPersonViewControllerDelegate>
 @property (nonatomic, retain)  UISearchBar *searchBar;
 @property (nonatomic, retain) NSMutableArray *listOfItems;
+//@property (nonatomic) NSMutableDictionary *contactsDictionary;
 @property (nonatomic) NSArray *contactsArray;
 @property (nonatomic) NSArray *oldContactsArray;
 @property (nonatomic) NSArray *datedContactsArray;
