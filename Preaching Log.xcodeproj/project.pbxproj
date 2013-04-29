@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		99013A1B17286924006453BC /* toggle_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 99013A1A17286924006453BC /* toggle_log.png */; };
 		990C312216B9F9D70008E90A /* CalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C312116B9F9D70008E90A /* CalendarMonthViewController.m */; };
-		990C314516B9FF770008E90A /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 990C314016B9FF1D0008E90A /* libTapkuLibrary.a */; };
 		990C316516BA14160008E90A /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C316416BA14160008E90A /* AddEventViewController.m */; };
 		990C317216BCAB120008E90A /* VariableStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C317116BCAB120008E90A /* VariableStore.m */; };
 		990C317E16BF5C000008E90A /* grey_uibutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C317D16BF5BFF0008E90A /* grey_uibutton.png */; };
@@ -19,14 +18,11 @@
 		990C31A816C368D40008E90A /* CustomCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990C31A716C368D40008E90A /* CustomCellView.xib */; };
 		990C31AB16C36B7F0008E90A /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C31AA16C36B7F0008E90A /* TableCell.m */; };
 		990C31AD16C61A230008E90A /* log_book.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 990C31AC16C61A230008E90A /* log_book.jpg */; };
-		990C31AF16C61D150008E90A /* cr32_action_contents2.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31AE16C61D150008E90A /* cr32_action_contents2.png */; };
 		990C31B116C61D5D0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B016C61D5D0008E90A /* book.png */; };
 		990C31B316C61D6B0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B216C61D6B0008E90A /* book.png */; };
-		990C31B516C6860B0008E90A /* cr32_action_contents2 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B416C6860B0008E90A /* cr32_action_contents2 (1).png */; };
-		991B3782172CC2C500E83F52 /* cr32_action_contents2 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 991B3781172CC2C500E83F52 /* cr32_action_contents2 (2).png */; };
-		991B3787172CC48700E83F52 /* preaching_log_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B3786172CC48700E83F52 /* preaching_log_57.png */; };
+		9911135B172E17D600EC0A9C /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9911135A172E17D600EC0A9C /* TapkuLibrary.bundle */; };
+		9911135E172E17F500EC0A9C /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99111357172E17C800EC0A9C /* libTapkuLibrary.a */; };
 		991B3789172CC4A500E83F52 /* preaching_log_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B3788172CC4A500E83F52 /* preaching_log_57.png */; };
-		991B378B172CC54400E83F52 /* preaching_log_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B378A172CC54400E83F52 /* preaching_log_114.png */; };
 		991B378D172CC56200E83F52 /* preaching_log_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B378C172CC56200E83F52 /* preaching_log_114.png */; };
 		994247D41722EC0200B60305 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994247D31722EC0200B60305 /* AddressBookUI.framework */; };
 		994247D61722F22800B60305 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994247D51722F22800B60305 /* AddressBook.framework */; };
@@ -48,7 +44,6 @@
 		99959A9916B756DC00E69A2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6E16B756DC00E69A2F /* Foundation.framework */; };
 		99959AA116B756DC00E69A2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99959A9F16B756DC00E69A2F /* InfoPlist.strings */; };
 		99959AA416B756DC00E69A2F /* Preaching_LogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99959AA316B756DC00E69A2F /* Preaching_LogTests.m */; };
-		99959AEF16B75CE000E69A2F /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99959AEE16B75CE000E69A2F /* TapkuLibrary.bundle */; };
 		99959AF416B75D5000E69A2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959AF316B75D5000E69A2F /* QuartzCore.framework */; };
 		99959AF616B75D6300E69A2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959AF516B75D6300E69A2F /* MapKit.framework */; };
 		99959B0916B7712700E69A2F /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99959B0816B7712700E69A2F /* CalendarViewController.m */; };
@@ -64,23 +59,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		990C313F16B9FF1D0008E90A /* PBXContainerItemProxy */ = {
+		99111356172E17C800EC0A9C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */;
+			containerPortal = 99111351172E17C800EC0A9C /* TapkuLibrary.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = TapkuLibrary;
 		};
-		990C314116B9FF1D0008E90A /* PBXContainerItemProxy */ = {
+		99111358172E17C800EC0A9C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */;
+			containerPortal = 99111351172E17C800EC0A9C /* TapkuLibrary.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3B45DDF1134C736600D24C1A;
 			remoteInfo = LogicTests;
 		};
-		990C314316B9FF6C0008E90A /* PBXContainerItemProxy */ = {
+		9911135C172E17ED00EC0A9C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */;
+			containerPortal = 99111351172E17C800EC0A9C /* TapkuLibrary.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = TapkuLibrary;
@@ -98,7 +93,6 @@
 		99013A1A17286924006453BC /* toggle_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_log.png; sourceTree = "<group>"; };
 		990C312016B9F9D70008E90A /* CalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarMonthViewController.h; sourceTree = "<group>"; };
 		990C312116B9F9D70008E90A /* CalendarMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarMonthViewController.m; sourceTree = "<group>"; };
-		990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		990C316316BA14160008E90A /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		990C316416BA14160008E90A /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		990C317016BCAB120008E90A /* VariableStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableStore.h; sourceTree = "<group>"; };
@@ -112,15 +106,12 @@
 		990C31A916C36B7E0008E90A /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
 		990C31AA16C36B7F0008E90A /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
 		990C31AC16C61A230008E90A /* log_book.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = log_book.jpg; sourceTree = "<group>"; };
-		990C31AE16C61D150008E90A /* cr32_action_contents2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cr32_action_contents2.png; sourceTree = "<group>"; };
 		990C31B016C61D5D0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
-		990C31B216C61D6B0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
-		990C31B416C6860B0008E90A /* cr32_action_contents2 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cr32_action_contents2 (1).png"; path = "../../../Downloads/cr32_action_contents2 (1).png"; sourceTree = "<group>"; };
-		991B3781172CC2C500E83F52 /* cr32_action_contents2 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cr32_action_contents2 (2).png"; sourceTree = "<group>"; };
-		991B3786172CC48700E83F52 /* preaching_log_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preaching_log_57.png; sourceTree = "<group>"; };
-		991B3788172CC4A500E83F52 /* preaching_log_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preaching_log_57.png; sourceTree = "<group>"; };
-		991B378A172CC54400E83F52 /* preaching_log_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preaching_log_114.png; sourceTree = "<group>"; };
-		991B378C172CC56200E83F52 /* preaching_log_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preaching_log_114.png; sourceTree = "<group>"; };
+		990C31B216C61D6B0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = book.png; path = ../book.png; sourceTree = "<group>"; };
+		99111351172E17C800EC0A9C /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
+		9911135A172E17D600EC0A9C /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../tapkulibrary/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
+		991B3788172CC4A500E83F52 /* preaching_log_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preaching_log_57.png; path = ../preaching_log_57.png; sourceTree = "<group>"; };
+		991B378C172CC56200E83F52 /* preaching_log_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preaching_log_114.png; path = ../preaching_log_114.png; sourceTree = "<group>"; };
 		994247D31722EC0200B60305 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		994247D51722F22800B60305 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		994247D81722F5C000B60305 /* ContactLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactLogViewController.h; sourceTree = "<group>"; };
@@ -148,7 +139,6 @@
 		99959AA016B756DC00E69A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		99959AA216B756DC00E69A2F /* Preaching_LogTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preaching_LogTests.h; sourceTree = "<group>"; };
 		99959AA316B756DC00E69A2F /* Preaching_LogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Preaching_LogTests.m; sourceTree = "<group>"; };
-		99959AEE16B75CE000E69A2F /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapkuLibrary.bundle; sourceTree = "<group>"; };
 		99959AF316B75D5000E69A2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		99959AF516B75D6300E69A2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		99959B0716B7712700E69A2F /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
@@ -170,10 +160,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9911135E172E17F500EC0A9C /* libTapkuLibrary.a in Frameworks */,
 				994247D61722F22800B60305 /* AddressBook.framework in Frameworks */,
 				994247D41722EC0200B60305 /* AddressBookUI.framework in Frameworks */,
 				99CC12E01720F49E0012C01C /* CoreData.framework in Frameworks */,
-				990C314516B9FF770008E90A /* libTapkuLibrary.a in Frameworks */,
 				99959AF616B75D6300E69A2F /* MapKit.framework in Frameworks */,
 				99959AF416B75D5000E69A2F /* QuartzCore.framework in Frameworks */,
 				99959A6D16B756DC00E69A2F /* UIKit.framework in Frameworks */,
@@ -195,11 +185,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		990C313716B9FF1C0008E90A /* Products */ = {
+		99111352172E17C800EC0A9C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				990C314016B9FF1D0008E90A /* libTapkuLibrary.a */,
-				990C314216B9FF1D0008E90A /* LogicTests.octest */,
+				99111357172E17C800EC0A9C /* libTapkuLibrary.a */,
+				99111359172E17C800EC0A9C /* LogicTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,10 +197,8 @@
 		99959A5D16B756DC00E69A2F = {
 			isa = PBXGroup;
 			children = (
-				991B378C172CC56200E83F52 /* preaching_log_114.png */,
-				991B3788172CC4A500E83F52 /* preaching_log_57.png */,
-				990C31B216C61D6B0008E90A /* book.png */,
-				990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */,
+				9911135A172E17D600EC0A9C /* TapkuLibrary.bundle */,
+				99111351172E17C800EC0A9C /* TapkuLibrary.xcodeproj */,
 				99959A7216B756DC00E69A2F /* Preaching Log */,
 				99959A9C16B756DC00E69A2F /* Preaching LogTests */,
 				99959A6B16B756DC00E69A2F /* Frameworks */,
@@ -281,20 +269,17 @@
 		99959A7316B756DC00E69A2F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				991B378A172CC54400E83F52 /* preaching_log_114.png */,
-				991B3786172CC48700E83F52 /* preaching_log_57.png */,
-				991B3781172CC2C500E83F52 /* cr32_action_contents2 (2).png */,
+				991B378C172CC56200E83F52 /* preaching_log_114.png */,
+				991B3788172CC4A500E83F52 /* preaching_log_57.png */,
+				990C31B216C61D6B0008E90A /* book.png */,
 				99013A1A17286924006453BC /* toggle_log.png */,
 				99DC0A991726280C00770C82 /* blue_button.png */,
 				99D87DB91726255900A1785E /* sub_blue_remove.png */,
-				990C31B416C6860B0008E90A /* cr32_action_contents2 (1).png */,
 				990C31B016C61D5D0008E90A /* book.png */,
-				990C31AE16C61D150008E90A /* cr32_action_contents2.png */,
 				990C31AC16C61A230008E90A /* log_book.jpg */,
 				990C318116BF5C220008E90A /* red_uibutton.png */,
 				990C317F16BF5C110008E90A /* green_uibutton.png */,
 				990C317D16BF5BFF0008E90A /* grey_uibutton.png */,
-				99959AEE16B75CE000E69A2F /* TapkuLibrary.bundle */,
 				99959A7416B756DC00E69A2F /* Preaching Log-Info.plist */,
 				99959A7516B756DC00E69A2F /* InfoPlist.strings */,
 				99959A7816B756DC00E69A2F /* main.m */,
@@ -340,7 +325,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				990C314416B9FF6C0008E90A /* PBXTargetDependency */,
+				9911135D172E17ED00EC0A9C /* PBXTargetDependency */,
 			);
 			name = "Preaching Log";
 			productName = "Preaching Log";
@@ -389,8 +374,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 990C313716B9FF1C0008E90A /* Products */;
-					ProjectRef = 990C313616B9FF1C0008E90A /* TapkuLibrary.xcodeproj */;
+					ProductGroup = 99111352172E17C800EC0A9C /* Products */;
+					ProjectRef = 99111351172E17C800EC0A9C /* TapkuLibrary.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -402,18 +387,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		990C314016B9FF1D0008E90A /* libTapkuLibrary.a */ = {
+		99111357172E17C800EC0A9C /* libTapkuLibrary.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libTapkuLibrary.a;
-			remoteRef = 990C313F16B9FF1D0008E90A /* PBXContainerItemProxy */;
+			remoteRef = 99111356172E17C800EC0A9C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		990C314216B9FF1D0008E90A /* LogicTests.octest */ = {
+		99111359172E17C800EC0A9C /* LogicTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = LogicTests.octest;
-			remoteRef = 990C314116B9FF1D0008E90A /* PBXContainerItemProxy */;
+			remoteRef = 99111358172E17C800EC0A9C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -429,24 +414,19 @@
 				99959A8316B756DC00E69A2F /* Default-568h@2x.png in Resources */,
 				99959A8616B756DC00E69A2F /* MainStoryboard_iPhone.storyboard in Resources */,
 				99959A8916B756DC00E69A2F /* MainStoryboard_iPad.storyboard in Resources */,
-				99959AEF16B75CE000E69A2F /* TapkuLibrary.bundle in Resources */,
 				990C317E16BF5C000008E90A /* grey_uibutton.png in Resources */,
 				990C318016BF5C110008E90A /* green_uibutton.png in Resources */,
 				990C318216BF5C220008E90A /* red_uibutton.png in Resources */,
 				990C31A816C368D40008E90A /* CustomCellView.xib in Resources */,
 				990C31AD16C61A230008E90A /* log_book.jpg in Resources */,
-				990C31AF16C61D150008E90A /* cr32_action_contents2.png in Resources */,
 				990C31B116C61D5D0008E90A /* book.png in Resources */,
 				990C31B316C61D6B0008E90A /* book.png in Resources */,
-				990C31B516C6860B0008E90A /* cr32_action_contents2 (1).png in Resources */,
 				99D87DBA1726255900A1785E /* sub_blue_remove.png in Resources */,
 				99DC0A9A1726280C00770C82 /* blue_button.png in Resources */,
 				99013A1B17286924006453BC /* toggle_log.png in Resources */,
-				991B3782172CC2C500E83F52 /* cr32_action_contents2 (2).png in Resources */,
-				991B3787172CC48700E83F52 /* preaching_log_57.png in Resources */,
 				991B3789172CC4A500E83F52 /* preaching_log_57.png in Resources */,
-				991B378B172CC54400E83F52 /* preaching_log_114.png in Resources */,
 				991B378D172CC56200E83F52 /* preaching_log_114.png in Resources */,
+				9911135B172E17D600EC0A9C /* TapkuLibrary.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,10 +491,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		990C314416B9FF6C0008E90A /* PBXTargetDependency */ = {
+		9911135D172E17ED00EC0A9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TapkuLibrary;
-			targetProxy = 990C314316B9FF6C0008E90A /* PBXContainerItemProxy */;
+			targetProxy = 9911135C172E17ED00EC0A9C /* PBXContainerItemProxy */;
 		};
 		99959A9B16B756DC00E69A2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -622,7 +602,10 @@
 					/Users/patrickasare/Desktop/tapkulibrary/src,
 				);
 				INFOPLIST_FILE = "Preaching Log/Preaching Log-Info.plist";
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -640,7 +623,10 @@
 					/Users/patrickasare/Desktop/tapkulibrary/src,
 				);
 				INFOPLIST_FILE = "Preaching Log/Preaching Log-Info.plist";
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

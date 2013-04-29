@@ -35,15 +35,11 @@
 }
 - (void) calendarMonthView:(TKCalendarMonthView*)monthView didSelectDate:(NSDate*)date{
 	
-	// CHANGE THE DATE TO YOUR TIMEZONE
-	TKDateInformation info = [date dateInformationWithTimeZone:[NSTimeZone systemTimeZone]];
-	NSDate *myTimeZoneDay = [NSDate dateFromDateInformation:info timeZone:[NSTimeZone systemTimeZone]];
-	
 	
 	//Save the date as a global variable
     VariableStore *globals =[VariableStore sharedInstance];
     
-    NSDate *modifiedDate = [myTimeZoneDay dateByAddingTimeInterval:8*60*60];
+    NSDate *modifiedDate = date;
     NSString *dateString = [NSDateFormatter localizedStringFromDate:modifiedDate
                                                           dateStyle:NSDateFormatterShortStyle
                                                           timeStyle:NSDateFormatterNoStyle];
@@ -100,7 +96,7 @@
 	NSDate *d = start;
     NSDate *modifiedDate;
 	while(YES){
-        modifiedDate = [d dateByAddingTimeInterval:8*60*60];
+        modifiedDate = d;
         //search for this date
         NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(date == %@)", modifiedDate];
         [request setPredicate:predicate];
@@ -121,10 +117,10 @@
                 [self.dataArray addObject:[NSNumber numberWithBool:NO]];
         }
 
-		TKDateInformation info = [d dateInformationWithTimeZone:[NSTimeZone systemTimeZone]];
+		NSDateComponents *info = [d dateComponentsWithTimeZone:self.monthView.timeZone];
 		info.day++;
         
-		d = [NSDate dateFromDateInformation:info timeZone:[NSTimeZone systemTimeZone]];
+		d = [NSDate dateWithDateComponents:info];
         
 		if([d compare:end]==NSOrderedDescending) {
             break;
@@ -134,7 +130,7 @@
 }
 
 - (void) dataSaved:(NSNotification *)notification{
-    [self.monthView reload];
+    [self.monthView reloadData];
     
 }
 
