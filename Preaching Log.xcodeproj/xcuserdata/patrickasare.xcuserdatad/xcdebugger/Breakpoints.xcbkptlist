@@ -84,11 +84,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388121382.528068"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-calendarMonthView:didSelectDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -97,11 +97,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388121382.528068"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
          landmarkName = "-calendarMonthView:didSelectDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -110,11 +110,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388125979.03869"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "103"
-         endingLineNumber = "103"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
          landmarkName = "-generateTableMarks:endDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -136,11 +136,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388121504.564414"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
          landmarkName = "-calendarMonthView:didSelectDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -149,11 +149,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388121504.564414"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "44"
-         endingLineNumber = "44"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
          landmarkName = "-calendarMonthView:didSelectDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -201,11 +201,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388126758.678467"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
+         startingLineNumber = "121"
+         endingLineNumber = "121"
          landmarkName = "-generateTableMarks:endDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -227,11 +227,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388126758.678467"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
+         startingLineNumber = "132"
+         endingLineNumber = "132"
          landmarkName = "-dataSaved:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -240,11 +240,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388126758.678467"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
+         startingLineNumber = "132"
+         endingLineNumber = "132"
          landmarkName = "-dataSaved:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -279,11 +279,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388121504.564414"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
          landmarkName = "-calendarMonthView:monthDidChange:animated:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -331,11 +331,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388126012.627097"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "95"
+         endingLineNumber = "95"
          landmarkName = "-generateTableMarks:endDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -344,11 +344,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388126758.678467"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
          landmarkName = "-generateTableMarks:endDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -357,11 +357,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388126758.678467"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "134"
-         endingLineNumber = "134"
+         startingLineNumber = "130"
+         endingLineNumber = "130"
          landmarkName = "-generateTableMarks:endDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -370,11 +370,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/CalendarMonthViewController.m"
-         timestampString = "388127114.621148"
+         timestampString = "388898064.096138"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "113"
-         endingLineNumber = "113"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
          landmarkName = "-generateTableMarks:endDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -617,11 +617,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/ContactLogViewController.m"
-         timestampString = "388792680.400559"
+         timestampString = "389164837.535384"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "314"
-         endingLineNumber = "314"
+         startingLineNumber = "381"
+         endingLineNumber = "381"
          landmarkName = "-getDatedContacts"
          landmarkType = "5">
       </FileBreakpoint>
@@ -630,11 +630,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/ContactLogViewController.m"
-         timestampString = "388792680.400559"
+         timestampString = "389164837.535384"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "207"
-         endingLineNumber = "207"
+         startingLineNumber = "255"
+         endingLineNumber = "255"
          landmarkName = "-searchBar:selectedScopeButtonIndexDidChange:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -643,11 +643,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/ContactLogViewController.m"
-         timestampString = "388792680.400559"
+         timestampString = "389164837.535384"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "297"
-         endingLineNumber = "297"
+         startingLineNumber = "347"
+         endingLineNumber = "347"
          landmarkName = "-getDatedContacts"
          landmarkType = "5">
       </FileBreakpoint>
@@ -656,11 +656,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/ContactLogViewController.m"
-         timestampString = "388792680.400559"
+         timestampString = "389164837.535384"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "298"
-         endingLineNumber = "298"
+         startingLineNumber = "348"
+         endingLineNumber = "348"
          landmarkName = "-getDatedContacts"
          landmarkType = "5">
       </FileBreakpoint>
@@ -669,11 +669,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/ContactLogViewController.m"
-         timestampString = "388792680.400559"
+         timestampString = "389164837.535384"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "313"
-         endingLineNumber = "313"
+         startingLineNumber = "376"
+         endingLineNumber = "376"
          landmarkName = "-getDatedContacts"
          landmarkType = "5">
       </FileBreakpoint>
@@ -682,11 +682,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Preaching Log/ContactLogViewController.m"
-         timestampString = "388792680.400559"
+         timestampString = "389164837.535384"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "310"
-         endingLineNumber = "310"
+         startingLineNumber = "361"
+         endingLineNumber = "361"
          landmarkName = "-getDatedContacts"
          landmarkType = "5">
       </FileBreakpoint>
@@ -753,6 +753,71 @@
          startingLineNumber = "726"
          endingLineNumber = "726"
          landmarkName = "-initWithSundayAsFirst:timeZone:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/ContactLogViewController.m"
+         timestampString = "389164837.535384"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "404"
+         endingLineNumber = "404"
+         landmarkName = "-getContacts"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/OrderedDictionary.m"
+         timestampString = "389156494.895698"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "386"
+         endingLineNumber = "386"
+         landmarkName = "-copyWithZone:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/ContactLogViewController.m"
+         timestampString = "389164837.535384"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "342"
+         endingLineNumber = "342"
+         landmarkName = "-getDatedContacts"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/ContactLogViewController.m"
+         timestampString = "389164837.535384"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "382"
+         endingLineNumber = "382"
+         landmarkName = "-getDatedContacts"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Preaching Log/ContactLogViewController.m"
+         timestampString = "389164837.535384"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "165"
+         endingLineNumber = "165"
+         landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

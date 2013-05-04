@@ -32,9 +32,12 @@ bool _searching = NO;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self getContacts];
+    
     _listOfItems = [[NSMutableArray alloc] init];
-    _contactsArray  = [[VariableStore sharedInstance] ABcontactsArray];
-    _oldContactsArray = [[VariableStore sharedInstance] ABcontactsArray];;
+    //_contactsArray  = [[VariableStore sharedInstance] ABcontactsArray];
+    //_oldContactsArray = [[VariableStore sharedInstance] ABcontactsArray];
     UISearchBar *tempSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 0)];
     _searchBar = tempSearchBar;
     _searchBar.delegate = self;
@@ -84,23 +87,32 @@ bool _searching = NO;
     if (_searching)
         return 1;
     else {
-        return 1;
-        //return [[_contactsDictionary allKeys] count];
+        //return 1;
+        return [[_contactsDictionary allKeys] count];
     }
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (_searching)
         return [_listOfItems count];
-    else {
-        return [_contactsArray count];
-    }
+    else
+        return [[_contactsDictionary objectAtIndex:section]count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(_searching)
+        return @"Search Results";
+    else
+        return [_contactsDictionary keyAtIndex:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"contactCell";
+    NSArray *currentSection;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
     {
@@ -111,28 +123,30 @@ bool _searching = NO;
         cell.textLabel.text = [_listOfItems objectAtIndex:indexPath.row];
     }
     else {
-        cell.textLabel.text = [_contactsArray objectAtIndex:indexPath.row];
+        currentSection = [_contactsDictionary objectAtIndex:indexPath.section];
+        cell.textLabel.text = [currentSection objectAtIndex:indexPath.row];
     }
     
     //cell.backgroundColor = [UIColor colorWithRed:210/255.0f green:226/255.0f blue:245/255.0f alpha:1];
     return cell;
 }
 
-/*
+
+
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     NSMutableArray *sectionedArray = [[NSMutableArray alloc]init];
-    for(char c ='A' ; c <= 'Z' ;  c++)
+    for(NSString *character in [_contactsDictionary allKeys])
     {
-        [sectionedArray addObject:[NSString stringWithFormat:@"%c",c]];
+        [sectionedArray addObject:character];
     }
     return sectionedArray;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-    NSInteger count = 0;
-    for(NSString *character in _contactsArray)
+    /*NSInteger count = 0;
+    for(NSString *character in [_contactsDictionary allKeys])
     {
         if([character isEqualToString:title])
         {
@@ -140,21 +154,55 @@ bool _searching = NO;
         }
         count ++;
     }
-    return 0;
-} */
+    return 0;*/
+return index;
+}
 
-
+//Delete old entries from the database
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSError *error;
+        NSString *person = [[_contactsDictionary objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        NSManagedObjectContext *context = [[VariableStore sharedInstance] context];
+        NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Contact"];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(name == %@)", person];
+        [request setPredicate:predicate];
+        NSArray *results = [context executeFetchRequest:request error:&error];
+        if (error != nil) {
+            //Deal with failure
+        }
+        else {
+            if (results.count > 0) {
+                for (Contact *contact in results){
+                    [context deleteObject:contact];
+                    
+                    //Save changes
+                    if (![context save:&error]) {
+                        // Handle the error.
+                    }
+                    else
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"DataSaved" object:nil];
+                }
+            }
+           
+            
+        }
+    }
+}
 
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray *currentContacts;
     if (_searching){
         [self loadContact:[_listOfItems objectAtIndex:indexPath.row]];
     }
     else {
-        [self loadContact:[_contactsArray objectAtIndex:indexPath.row]];
+        currentContacts = [_contactsDictionary objectAtIndex:indexPath.section];
+        [self loadContact:[currentContacts objectAtIndex:indexPath.row]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -183,7 +231,7 @@ bool _searching = NO;
 }
 
 //Edit contact functions
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     ABPersonViewController *personView = [[ABPersonViewController alloc] init];
     personView.personViewDelegate = self;
@@ -194,7 +242,7 @@ bool _searching = NO;
     personView.displayedProperties = displayedItems;
     [self.navigationController pushViewController:personView animated:YES];
     
-}
+} */
 
 //View contact
 - (BOOL)personViewController:(ABPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifierForValue
@@ -206,10 +254,10 @@ bool _searching = NO;
 
 -(void) searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
     if (selectedScope == 0) {
-        _contactsArray = _oldContactsArray;
+        _contactsDictionary = _oldContactsDictionary;
     }
     if (selectedScope == 1) {
-        _contactsArray = _datedContactsArray;
+        _contactsDictionary = _datedContactsDictionary;
     }
     [self.tableView reloadData];
 }
@@ -248,14 +296,16 @@ bool _searching = NO;
     
     NSString *searchText = _searchBar.text;
     NSMutableArray *searchArray = [[NSMutableArray alloc] init];
-    [searchArray addObjectsFromArray:_contactsArray];
+    for (int i = 0; i<[[_contactsDictionary allKeys] count]; i++) {
+        [searchArray addObjectsFromArray:[_contactsDictionary objectAtIndex:i]];
+    }
     NSString *personName;
     for (int i=0; i<[searchArray count]; i++) {
         
         personName = [searchArray objectAtIndex:i];
         NSRange titleResultsRange = [personName rangeOfString:searchText options:NSCaseInsensitiveSearch];
         if (titleResultsRange.length > 0)
-            [_listOfItems addObject:[_contactsArray objectAtIndex:i]];
+            [_listOfItems addObject:[searchArray objectAtIndex:i]];
     }
     searchArray = nil;
 }
@@ -306,46 +356,72 @@ bool _searching = NO;
         //Deal with failure
     }
     else {
+        _datedContactsDictionary = [OrderedDictionary dictionary];
+        NSString *contactDate;
         //Get dated names in proper order
+        NSMutableArray *group;
         NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+        int index = 0;
         for (Contact *contact in results){
+            contactDate = [NSDateFormatter localizedStringFromDate:contact.date
+                                                                  dateStyle:NSDateFormatterShortStyle
+                                                                  timeStyle:NSDateFormatterNoStyle];
             
+            if ([_datedContactsDictionary valueForKey:contactDate] != nil){
+                group = [[_datedContactsDictionary valueForKey:contactDate]mutableCopy];
+                [group addObject:contact.name];
+                [_datedContactsDictionary setValue:group forKey:contactDate];
+            }
+            else {
+                NSArray *newGroup = [[NSArray alloc]initWithObjects:contact.name, nil];
+                [_datedContactsDictionary insertObject:newGroup forKey:contactDate atIndex:index];
+                index++;
+            }
             [tempArray addObject:contact.name];
         }
         //Add undated names to the end
-        NSString *personName;
-        for (int i=0; i<[_contactsArray count]; i++) {
-    
-            personName = [_contactsArray objectAtIndex:i];
+        for (NSString *personName in [[VariableStore sharedInstance]ABcontactsArray] ){
             if (![tempArray containsObject:personName]){
-                [tempArray addObject:personName];
+                if ([_datedContactsDictionary valueForKey:@"Undated"] !=nil){
+                    group = [[_datedContactsDictionary valueForKey:@"Undated"]mutableCopy];
+                    [group addObject:personName];
+                    [_datedContactsDictionary setValue:group forKey:@"Undated"];
+                }
+                else {
+                    NSArray *newGroup = [[NSArray alloc]initWithObjects:personName, nil];
+                    [_datedContactsDictionary insertObject:newGroup forKey:@"Undated" atIndex:index];
+                }
             }
+                
         }
+        
         NSLog(@"%@",tempArray);
-        _datedContactsArray = tempArray;
     }
 }
 
 //Return an order dictionary of contacts for the contact list
-/*-(void)getContacts {
+-(void)getContacts {
     NSArray *contacts = [[VariableStore sharedInstance] ABcontactsArray];
-    _contactsDictionary = [[NSMutableDictionary alloc]init];
+    _contactsDictionary = [OrderedDictionary dictionary];
     NSString *firstCharacter;
     NSMutableArray *group;
+    int index = 0;
     for (NSString *contact in contacts) {
         firstCharacter = [[contact substringToIndex:1] uppercaseString];
         
         if ([_contactsDictionary valueForKey:firstCharacter] != nil){
-            group = [_contactsDictionary valueForKey:firstCharacter];
+            group = [[_contactsDictionary valueForKey:firstCharacter]mutableCopy];
             [group addObject:contact];
             [_contactsDictionary setValue:group forKey:firstCharacter];
         }
         else {
             NSArray *newGroup = [[NSArray alloc]initWithObjects:contact, nil];
-            [_contactsDictionary setValue:newGroup forKey:firstCharacter];
+            [_contactsDictionary insertObject:newGroup forKey:firstCharacter atIndex:index];
+            index++;
         }
     }
-} */
+    _oldContactsDictionary = [OrderedDictionary dictionaryWithDictionary:_contactsDictionary];
+} 
 
 
 @end
