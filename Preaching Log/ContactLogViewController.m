@@ -132,8 +132,8 @@ bool _searching = NO;
 }
 
 
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+//For displaying selection bar on the side
+/*- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     NSMutableArray *sectionedArray = [[NSMutableArray alloc]init];
     for(NSString *character in [_contactsDictionary allKeys])
@@ -145,7 +145,7 @@ bool _searching = NO;
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-    /*NSInteger count = 0;
+    NSInteger count = 0;
     for(NSString *character in [_contactsDictionary allKeys])
     {
         if([character isEqualToString:title])
@@ -154,9 +154,9 @@ bool _searching = NO;
         }
         count ++;
     }
-    return 0;*/
+    return 0;
 return index;
-}
+} */
 
 //Delete old entries from the database
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
