@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E824D32195501AF0085C676 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E824D31195501AF0085C676 /* TapkuLibrary.bundle */; };
+		5E9347A31954D381001AD2FF /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99111357172E17C800EC0A9C /* libTapkuLibrary.a */; };
 		99013A1B17286924006453BC /* toggle_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 99013A1A17286924006453BC /* toggle_log.png */; };
 		990C312216B9F9D70008E90A /* CalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C312116B9F9D70008E90A /* CalendarMonthViewController.m */; };
 		990C316516BA14160008E90A /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C316416BA14160008E90A /* AddEventViewController.m */; };
@@ -19,9 +21,6 @@
 		990C31AB16C36B7F0008E90A /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990C31AA16C36B7F0008E90A /* TableCell.m */; };
 		990C31AD16C61A230008E90A /* log_book.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 990C31AC16C61A230008E90A /* log_book.jpg */; };
 		990C31B116C61D5D0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B016C61D5D0008E90A /* book.png */; };
-		990C31B316C61D6B0008E90A /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 990C31B216C61D6B0008E90A /* book.png */; };
-		9911135B172E17D600EC0A9C /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9911135A172E17D600EC0A9C /* TapkuLibrary.bundle */; };
-		9911135E172E17F500EC0A9C /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99111357172E17C800EC0A9C /* libTapkuLibrary.a */; };
 		991B3789172CC4A500E83F52 /* preaching_log_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B3788172CC4A500E83F52 /* preaching_log_57.png */; };
 		991B378D172CC56200E83F52 /* preaching_log_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 991B378C172CC56200E83F52 /* preaching_log_114.png */; };
 		994247D41722EC0200B60305 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994247D31722EC0200B60305 /* AddressBookUI.framework */; };
@@ -39,7 +38,6 @@
 		99959A8316B756DC00E69A2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99959A8216B756DC00E69A2F /* Default-568h@2x.png */; };
 		99959A8616B756DC00E69A2F /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99959A8416B756DC00E69A2F /* MainStoryboard_iPhone.storyboard */; };
 		99959A8916B756DC00E69A2F /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99959A8716B756DC00E69A2F /* MainStoryboard_iPad.storyboard */; };
-		99959A9716B756DC00E69A2F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A9616B756DC00E69A2F /* SenTestingKit.framework */; };
 		99959A9816B756DC00E69A2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6C16B756DC00E69A2F /* UIKit.framework */; };
 		99959A9916B756DC00E69A2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99959A6E16B756DC00E69A2F /* Foundation.framework */; };
 		99959AA116B756DC00E69A2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99959A9F16B756DC00E69A2F /* InfoPlist.strings */; };
@@ -91,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E824D31195501AF0085C676 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../tapkulibrary/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
 		99013A1A17286924006453BC /* toggle_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_log.png; sourceTree = "<group>"; };
 		990C312016B9F9D70008E90A /* CalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarMonthViewController.h; sourceTree = "<group>"; };
 		990C312116B9F9D70008E90A /* CalendarMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarMonthViewController.m; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 		990C31B016C61D5D0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		990C31B216C61D6B0008E90A /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = book.png; path = ../book.png; sourceTree = "<group>"; };
 		99111351172E17C800EC0A9C /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
-		9911135A172E17D600EC0A9C /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../tapkulibrary/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
 		991B3788172CC4A500E83F52 /* preaching_log_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preaching_log_57.png; path = ../preaching_log_57.png; sourceTree = "<group>"; };
 		991B378C172CC56200E83F52 /* preaching_log_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preaching_log_114.png; path = ../preaching_log_114.png; sourceTree = "<group>"; };
 		994247D31722EC0200B60305 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
@@ -134,15 +132,14 @@
 		99959A8216B756DC00E69A2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		99959A8516B756DC00E69A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		99959A8816B756DC00E69A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		99959A9516B756DC00E69A2F /* Preaching LogTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Preaching LogTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		99959A9616B756DC00E69A2F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		99959A9516B756DC00E69A2F /* Preaching LogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Preaching LogTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99959A9E16B756DC00E69A2F /* Preaching LogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Preaching LogTests-Info.plist"; sourceTree = "<group>"; };
 		99959AA016B756DC00E69A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		99959AA216B756DC00E69A2F /* Preaching_LogTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preaching_LogTests.h; sourceTree = "<group>"; };
 		99959AA316B756DC00E69A2F /* Preaching_LogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Preaching_LogTests.m; sourceTree = "<group>"; };
 		99959AF316B75D5000E69A2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		99959AF516B75D6300E69A2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		99959B0716B7712700E69A2F /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		99959B0716B7712700E69A2F /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CalendarViewController.h; sourceTree = "<group>"; };
 		99959B0816B7712700E69A2F /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		99C8E6E517320B1600F9C90D /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
 		99C8E6E717320B3D00F9C90D /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
@@ -163,7 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9911135E172E17F500EC0A9C /* libTapkuLibrary.a in Frameworks */,
+				5E9347A31954D381001AD2FF /* libTapkuLibrary.a in Frameworks */,
 				994247D61722F22800B60305 /* AddressBook.framework in Frameworks */,
 				994247D41722EC0200B60305 /* AddressBookUI.framework in Frameworks */,
 				99CC12E01720F49E0012C01C /* CoreData.framework in Frameworks */,
@@ -179,7 +176,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99959A9716B756DC00E69A2F /* SenTestingKit.framework in Frameworks */,
 				99959A9816B756DC00E69A2F /* UIKit.framework in Frameworks */,
 				99959A9916B756DC00E69A2F /* Foundation.framework in Frameworks */,
 			);
@@ -192,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				99111357172E17C800EC0A9C /* libTapkuLibrary.a */,
-				99111359172E17C800EC0A9C /* LogicTests.octest */,
+				99111359172E17C800EC0A9C /* LogicTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,7 +196,7 @@
 		99959A5D16B756DC00E69A2F = {
 			isa = PBXGroup;
 			children = (
-				9911135A172E17D600EC0A9C /* TapkuLibrary.bundle */,
+				5E824D31195501AF0085C676 /* TapkuLibrary.bundle */,
 				99111351172E17C800EC0A9C /* TapkuLibrary.xcodeproj */,
 				99959A7216B756DC00E69A2F /* Preaching Log */,
 				99959A9C16B756DC00E69A2F /* Preaching LogTests */,
@@ -213,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				99959A6816B756DC00E69A2F /* Preaching Log.app */,
-				99959A9516B756DC00E69A2F /* Preaching LogTests.octest */,
+				99959A9516B756DC00E69A2F /* Preaching LogTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,7 +225,6 @@
 				99959A6C16B756DC00E69A2F /* UIKit.framework */,
 				99959A6E16B756DC00E69A2F /* Foundation.framework */,
 				99959A7016B756DC00E69A2F /* CoreGraphics.framework */,
-				99959A9616B756DC00E69A2F /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -353,8 +348,8 @@
 			);
 			name = "Preaching LogTests";
 			productName = "Preaching LogTests";
-			productReference = 99959A9516B756DC00E69A2F /* Preaching LogTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 99959A9516B756DC00E69A2F /* Preaching LogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -362,6 +357,7 @@
 		99959A5F16B756DC00E69A2F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Church Of God";
 			};
@@ -399,10 +395,10 @@
 			remoteRef = 99111356172E17C800EC0A9C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		99111359172E17C800EC0A9C /* LogicTests.octest */ = {
+		99111359172E17C800EC0A9C /* LogicTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = LogicTests.octest;
+			path = LogicTests.xctest;
 			remoteRef = 99111358172E17C800EC0A9C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -422,16 +418,15 @@
 				990C317E16BF5C000008E90A /* grey_uibutton.png in Resources */,
 				990C318016BF5C110008E90A /* green_uibutton.png in Resources */,
 				990C318216BF5C220008E90A /* red_uibutton.png in Resources */,
+				5E824D32195501AF0085C676 /* TapkuLibrary.bundle in Resources */,
 				990C31A816C368D40008E90A /* CustomCellView.xib in Resources */,
 				990C31AD16C61A230008E90A /* log_book.jpg in Resources */,
 				990C31B116C61D5D0008E90A /* book.png in Resources */,
-				990C31B316C61D6B0008E90A /* book.png in Resources */,
 				99D87DBA1726255900A1785E /* sub_blue_remove.png in Resources */,
 				99DC0A9A1726280C00770C82 /* blue_button.png in Resources */,
 				99013A1B17286924006453BC /* toggle_log.png in Resources */,
 				991B3789172CC4A500E83F52 /* preaching_log_57.png in Resources */,
 				991B378D172CC56200E83F52 /* preaching_log_114.png in Resources */,
-				9911135B172E17D600EC0A9C /* TapkuLibrary.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +562,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"/Users/pasare/Documents/Zion Applications/tapkulibrary\"/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,7 +589,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"/Users/pasare/Documents/Zion Applications/tapkulibrary\"/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -600,12 +605,13 @@
 		99959AA816B756DC00E69A2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Preaching Log/Preaching Log-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"${SRCROOT}\"",
-					/Users/patrickasare/Desktop/tapkulibrary/src,
+					"\"/Users/pasare/Documents/Zion Applications/tapkulibrary\"/**",
 				);
 				INFOPLIST_FILE = "Preaching Log/Preaching Log-Info.plist";
 				OTHER_LDFLAGS = (
@@ -613,7 +619,9 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "\"/Users/pasare/Documents/Zion Applications/tapkulibrary\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -621,12 +629,13 @@
 		99959AA916B756DC00E69A2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Preaching Log/Preaching Log-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"${SRCROOT}\"",
-					/Users/patrickasare/Desktop/tapkulibrary/src,
+					"\"/Users/pasare/Documents/Zion Applications/tapkulibrary\"/**",
 				);
 				INFOPLIST_FILE = "Preaching Log/Preaching Log-Info.plist";
 				OTHER_LDFLAGS = (
@@ -634,7 +643,9 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "\"/Users/pasare/Documents/Zion Applications/tapkulibrary\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -646,13 +657,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Preaching Log/Preaching Log-Prefix.pch";
 				INFOPLIST_FILE = "Preaching LogTests/Preaching LogTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -663,13 +674,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Preaching Log/Preaching Log-Prefix.pch";
 				INFOPLIST_FILE = "Preaching LogTests/Preaching LogTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

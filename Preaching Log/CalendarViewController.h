@@ -5,7 +5,6 @@
 //  Created by Patrick Asare on 1/28/13.
 //  Copyright (c) 2013 Church Of God. All rights reserved.
 //
-
 #import <UIKit/UIKit.h>
 #import <TapkuLibrary/TapkuLibrary.h>
 #import "CalendarMonthViewController.h"

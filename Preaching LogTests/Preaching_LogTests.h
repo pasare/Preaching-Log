@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Church Of God. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface Preaching_LogTests : SenTestCase
+@interface Preaching_LogTests : XCTestCase
 
 @end

@@ -31,19 +31,19 @@
     //Initalize the view
     _eventsArray = [[NSMutableArray alloc] init];
     [_eventsArray addObject:@"None"];
-    [_eventsArray addObject:@"1 Door to Door Preaching"];
-    [_eventsArray addObject:@"2 Street Preaching"];
-    [_eventsArray addObject:@"3 Acquaintance Preaching"];
-    [_eventsArray addObject:@"4 Public Preaching"];
-    [_eventsArray addObject:@"5 Visit"];
-    [_eventsArray addObject:@"6 Education"];
-    [_eventsArray addObject:@"7 Activity for Church"];
-    [_eventsArray addObject:@"8 Church Gathering/Event"];
-    [_eventsArray addObject:@"9 Offical Trip"];
-    [_eventsArray addObject:@"10 Counseling"];
-    [_eventsArray addObject:@"11 Administration"];
-    [_eventsArray addObject:@"12 Head Office Work"];
-    [_eventsArray addObject:@"99 Other(Specify)"];
+    [_eventsArray addObject:@"Door to Door Preaching"];
+    [_eventsArray addObject:@"Street Preaching"];
+    [_eventsArray addObject:@"Acquaintance Preaching"];
+    [_eventsArray addObject:@"Public Preaching"];
+    [_eventsArray addObject:@"Visit"];
+    [_eventsArray addObject:@"Education"];
+    [_eventsArray addObject:@"Activity for Church"];
+    [_eventsArray addObject:@"Church Gathering/Event"];
+    [_eventsArray addObject:@"Offical Trip"];
+    [_eventsArray addObject:@"Counseling"];
+    [_eventsArray addObject:@"Administration"];
+    [_eventsArray addObject:@"Head Office Work"];
+    [_eventsArray addObject:@"Other(Specify)"];
     
     [self refreshView];
     
